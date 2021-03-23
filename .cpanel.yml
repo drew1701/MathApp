@@ -2,4 +2,4 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/drew1701d/public_html/wecodeedu/
-    - /src -R web $DEPLOYPATH
+    - /bin/cp -R src/web/ $DEPLOYPATH
