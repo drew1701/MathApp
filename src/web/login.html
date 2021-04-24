@@ -7,6 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="base_styles.css">
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="./js/localStorage.js"></script>
+    <script src="./js/new_user.js"></script>
+    <script src="./js/sessionStorage.js"></script>
+
+<style>
+  
+</style>
 </head>
 
 <body>
@@ -20,23 +31,46 @@
 <p></p>
 
 <nav>
-    <div class="pill"><a href="index.html">Home</a></div>
-    <div class="pill"><a href="select_game.html">Games</a></div>
-    <div class="pill"><a href="scores.html">Scores</a></div>
-    <div class="pill">PlayerName</div>
- 
+  <div class="pill"><a href="index.html">Home</a></div>
+  <div class="pill"><a href="select_game.html">Games</a></div>
+  <div class="pill"><a href="scores.html">Scores</a></div>
+  <div class="user pill">
+    <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+    <div class="user_login">
+      <div id="curr_user">Guest</div>
+      <a id="new_player" href="login.html">New Player?</a>
+    </div>
+  </div>
+
 </nav>
 <p></p>
 
 <main>
   <div id="mainA">
     <p>Let us know who you are and pick an avatar</p>
-    <p>Here areinstructions</p>
+    <p>Here are instructions</p>
   </div>
   
   <div id="mainB">
-    <p>Here is the actual login dialog form</p>
-    <p><a href="select_game.html">Play a Game</a></p>
+    <form >
+      <fieldset>
+        <legend>Hello, let me know about you.</legend>
+        <div class="choose_name">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="" required><br><br>
+        </div>
+        <div class="choose_avatar">
+          <label for="avatar">Avatar:</label><br><br>
+          <div id="selected_avatar" name="avatar"></div>
+        </div>
+        <br><br>
+        <div class="form_submit">
+          <input type="button" value="submit">
+        </div>
+        
+      </fieldset>
+    </form>
+    <div id="avatar_option"></div>
   </div>
   
 </main>
