@@ -18,13 +18,15 @@ var quiz_option={
     _30:30,
 }
 $(document).ready(function(){
-    $(".select_operation,.select_amount,.game_page").hide()
+    $(".select_operation,.select_amount,.game_page,#c_next,.start_btn").hide()
     // chose practice mode
     $("#practice_mode").click(function(){
+        $("#a_msg").text("Choose your favorite operation and click start")
         $(this).hide()
         $("#quiz_mode,#mainB").hide()
         $(".select_operation").show()
         $(".select_operation button").click(function(event) {
+            $(".start_btn").show()
             $(`#${event.target.id}`).addClass("click")
             for (let i in practice_option) {
                 if (event.target.id != i) {
@@ -40,10 +42,12 @@ $(document).ready(function(){
 
     //chose quiz mode
     $("#quiz_mode").click(function(){
+        $("b_msg").text("Choose the number of questions and click start")
         $(this).hide()
         $("#practice_mode,#mainA").hide()
         $(".select_amount").show()
         $(".select_amount button").click(function(event) {
+            $(".start_btn").show()
             $(`#${event.target.id}`).addClass("click")
             for (let i in quiz_option) {
                 if (event.target.id != i) {
@@ -59,35 +63,40 @@ $(document).ready(function(){
 
     //hit start button enter practice  or quiz
 
-    $('#start_btn').click(function() {
+    $('.start_btn').click(function() {
         console.log(math,quiz_num)
-        if (math == 0) {
-            alert("pick something") //alert when user didn`t select any mode
+        var subject=""
+        if(math==1){
+            subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
+        }else if(math==2){
+            subject="Subtraction - A mathematical operation that tells us the difference between two numbers."
+        }else if(math==3){
+            subject="Multiplication - A mathematical operation that take one number and add it together a number of times."
+        }else{
+            subject="Division - A mathematical operation that break a number up into an equal number of parts"
         }
-        else {
             $("#c_display").html("Press Go to begin")
-            $(".select_operation, .select_amount,#start_btn").hide()
+            $(".select_operation, .select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
             $("#mainA,#mainB,.game_page").show()
-            $("#c_hole,.c_option,#c_next").hide()
             $("#question span").text(quiz_num)
             
             if(math==5){
                 quiz=true
 
-                $("#mainA").html("<p>.....Quiz instruction......<p>") // instruction content 
+                $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
                 $('#c_profile').hide()
 
 
                 
             }else{
-                $("#mainA").html("<p>.....Practice instruction......<p>")// instruction content 
+                $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content 
                 
                 $(".c_infoBar").hide()
                 for(let i=0;i<quiz_num;i++){
                     $(".c_status").append(`<span>${i+1}</span>`)
                 }
             }
-        }
+        
     })
     // click on the answers of the math question
     $("#c_option1,#c_option2,#c_option3,#c_option4").click(function(event) {
@@ -107,24 +116,24 @@ $(document).ready(function(){
     $('#c_go').click(function() {
         generateQuestion(math)
     
-        $(".c_option,#c_hole,#c_next").show()
+        $(".c_option,#c_hole,#c_submit").show()
         console.log(quiz)
         if (quiz) {
             $("#c_go,#c_main,#c_profile").hide()
+            $(".c_status").show()
         } else {
+            $("#c_skip,.c_msg").show()
             $('#c_go').hide()
         }
 
 
     })
     // next button to generate new question
-    $("#c_next").click(function() {
+    $("#c_submit").click(function() {
         let input_ans = $("#c_hole").text()
         // correct answer selected
         if (correct_ans.toString() == input_ans) {
-            $(".c_status").append(`<span>${total_ques+1}</span>`)
-            $(`.c_status span:nth-child(${total_ques+1})`).css('background-color','green')
-            $("#c_next").text("Next")
+
             correct_ques++
             
             console.log("correct ques:" + correct_ques)
@@ -136,39 +145,62 @@ $(document).ready(function(){
             if(!quiz){
                 let kid=JSON.parse(localStorage.getItem("kid"))
             let index_user=0;
-            for(let i in kid){
-                if(kid[i].user==curr_user.trim() && kid[i].avatar==curr_avatar){
-                    index_user=i
-                    break;
+            if(kid!=null){
+                for(let i in kid){
+                    if(kid[i].user==curr_user.trim() && kid[i].avatar==curr_avatar){
+                        index_user=i
+                        break;
+                    }
                 }
-            }
-            console.log(math)
-            switch (math){
-                case 1:{
-                    kid[index_user].addQuestion+=1
-                    break;
-                }case 2:{
-                    kid[index_user].subQuestion+=1
-                    break;
-                }case 3:{
-                    kid[index_user].mulQuestion+=1
-                    break;
-                }case 4:{
-                    kid[index_user].divQuestion+=1
-                    break;
+                console.log(math)
+                switch (math){
+                    case 1:{
+                        kid[index_user].addQuestion+=1
+                        break;
+                    }case 2:{
+                        kid[index_user].subQuestion+=1
+                        break;
+                    }case 3:{
+                        kid[index_user].mulQuestion+=1
+                        break;
+                    }case 4:{
+                        kid[index_user].divQuestion+=1
+                        break;
+                    }
                 }
+                console.log(kid)
+                localStorage.setItem("kid",JSON.stringify(kid))
             }
-            console.log(kid)
-            localStorage.setItem("kid",JSON.stringify(kid))
+            
             // End update localstorage for practice mode
             }
-            
-                
-            if(quiz_num!=0){
+
+            if(quiz){
+                $(".c_status").append(`<span>${total_ques}</span>`)
+                console.log("quiz correct")
+                $(`.c_status span:nth-child(${total_ques})`).css('background-color','green')
+                if(quiz_num!=0){
                     generateQuestion(math)
                     $("#c_hole").text("?")
+                }
+                
+            }else{
+                $(".c_msg p,#c_next").show()
+                $(".c_msg p").css("background-color","green")
+                $(".c_msg p").text("Good job, You must feel so proud of yourself")
+                $("#c_submit").hide()
+                $("#c_next").click(function(){
+                    $("#c_submit").show()
+                    $(".c_msg p").css("background-color","transparent")
+                    $(".c_msg p").text("I’m glad you enjoy learning!")
+                    $("#c_next").hide()
+                    if(quiz_num!=0){
+                        generateQuestion(math)
+                        $("#c_hole").text("?")
+                }
+                })
             }
-            
+
         }else{
             // incorrect answer selected
             if(quiz){
@@ -182,19 +214,20 @@ $(document).ready(function(){
                     $("#c_hole").text("?")
                 }
             }else{
-                $("#c_next").text("Try again")
-                $("#c_next").fadeOut()
-                $("#c_next").fadeIn()
+                $("#c_hole").text("?")
+                $(".c_msg p").show()
+                $(".c_msg p").css("background-color","red")
+                $(".c_msg p").text("Keep on trying! Pick another answer")
             }
             
         }
         $("#question span").text(quiz_num)
         // when finish the last question of the test
         if(quiz_num==0){
-            $("#c_hole,#c_next,.c_status").hide()
+            $("#c_hole,#c_submit,.c_status").hide()
             math = -1
             clearInterval(interval)
-            $("#c_stop,.c_infoBar,.c_option,#c_hole,#c_next").hide()
+            $("#c_stop,.c_infoBar,.c_option,#c_hole,#c_submit").hide()
             $("#c_main,#c_profile").show(1000)
             document.getElementById("c_display").innerHTML = `<table><caption>Good Job! ${username}</caption><tr><td>Total Question:</td><td>${total_ques}</td></tr> <tr><td>Correct:</td><td>${correct_ques}</td></tr>  <tr><td>Score:</td><td>${(correct_ques/total_ques*100).toFixed(0)} </td></tr></table>`
             
@@ -223,6 +256,12 @@ $(document).ready(function(){
         }
         
         
+    })
+    $("#c_skip").click(function(){
+        generateQuestion(math)
+        $("#c_hole").text("?")
+        $(".c_msg p").text("Don't give up")
+        $(".c_msg p").css("background-color","transparent")
     })
 })
 
@@ -264,14 +303,14 @@ function generateQuestion() {
         case 3:
             {
                 first_quiz_num = random(20)
-                second_quiz_num = random(20)
+                second_quiz_num = random(10)
                 correct_ans = first_quiz_num * second_quiz_num
                 symbol = "X"
                 break;
             };
         case 4:
             {
-                second_quiz_num = random(20)
+                second_quiz_num = random(10)
                 correct_ans = random(20)
                 first_quiz_num = second_quiz_num * correct_ans
                 symbol = "/"
@@ -280,7 +319,7 @@ function generateQuestion() {
 
     }
 
-    ques = first_quiz_num.toString() + "&nbsp;&nbsp; " + symbol + "&nbsp;&nbsp;&nbsp;" + second_quiz_num.toString() + "&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;"
+    ques = first_quiz_num.toString() + "&nbsp; " + symbol + "&nbsp;&nbsp;" + second_quiz_num.toString() + "&nbsp;=&nbsp;&nbsp;"
     console.log("ques:" + ques)
     document.getElementById("c_display").innerHTML = ques
     generateOption()

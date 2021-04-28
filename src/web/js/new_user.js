@@ -1,6 +1,7 @@
 var curr_avatar=""
 var taken_avatar=''
 var kid=""
+var avatar_create=false
 var avatars=[
     "avatar1",
     "avatar2",
@@ -15,6 +16,25 @@ var avatars=[
 ]
 $(document).ready(function(){
     // display avaliable avatars when new player enter the name
+    var users=JSON.parse(localStorage.getItem("kid"))
+    if(users==null){
+        $("#mainA").hide()
+    }
+    for (let i in users){
+                
+        $(".dialog").append(`<div id=${users[i].user}_${users[i].avatar} style=background-image:url(../web/images/${users[i].avatar}.svg)>${users[i].user} </div>`)
+    }    
+    $(".dialog div").click(function(event){        
+        let selected=event.target.id
+        console.log(selected)
+        window.location.assign("index.html")        
+            curr_user=selected.split("_")[0]
+            curr_avatar=selected.split("_")[1]
+            console.log(curr_user,curr_avatar)
+            indexPageSignIn()
+        
+    })
+
     $("#name").change(function(){
         $("#avatar_option img").remove()
         for(let i=0;i<avatars.length;i++){
@@ -31,15 +51,20 @@ $(document).ready(function(){
                 $(`#${taken_avatar}`).remove()
             }
         }
-        $("#avatar_option img").hover(function(){$(this).css("background-color","black")},function(){$(this).css("background-color","rgb(140, 97, 209)")})
+        $("#avatar_option img").hover(function(){$(this).css("background-color","#eb9f12")},function(){$(this).css("background-color","white")})
     $("#avatar_option img").click(function(event){
-        $("#selected_avatar").text("")
+        $(".choose_avatar label").text("Avatar for you:").css("color","black")
+        avatar_create=true
         let curr_avatar=event.target.id
+        $(`#${curr_avatar}`).css("border","2px solid black")
+        var avatar_list=$("#avatar_option img")
+        for(let i=0;i<avatar_list.length;i++){
+            if(avatar_list[i].id!=curr_avatar){
+                $(`#${avatar_list[i].id}`).css("border","none")
+            }
+        }
         console.log(curr_avatar)
-        sessionStorage.setItem("curr_avatar",curr_avatar)
-        $("#selected_avatar img").remove()
-        $("#selected_avatar").append(`<img id=${curr_avatar}  src=./images/${curr_avatar}.svg alt="avatar" width="30" height="30">`)
-        
+        sessionStorage.setItem("curr_avatar",curr_avatar)      
     })  
 
     })
@@ -48,8 +73,8 @@ $(document).ready(function(){
     // localstorage, seesionstorage, page user info will be updated once hit submit button
     $(".form_submit input").click(function(){
         if($("form").valid()){
-            if($("#selected_avatar img").length==0){
-                $("#selected_avatar").text("pick your avatar")
+            if(!avatar_create){
+                $(".choose_avatar label").text("pick your avatar").css("color","red")
             }else{
                 var new_name=$("#name").val()
                 curr_avatar=sessionStorage.getItem("curr_avatar")

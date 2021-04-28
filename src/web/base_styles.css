@@ -57,6 +57,11 @@ main {
 #mainA, #mainB { /* setup columns in main body */
   background-color: white;
   border-style: solid; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 
@@ -158,29 +163,15 @@ footer {
   padding:5px;
   border-radius: 50%;
 }
-.layer{
-  z-index:500;
-  position: fixed;
-  width:100vw; 
-  height:100vh; 
-  left: 0%;
-  top: 0%;
-  background-color: black;
-  opacity: 0.6;
-}
-.hide{
-  display: none;
-}
+
 .dialog{
-  position: fixed;
+  
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  z-index:1000;
-  width:80vw;
-  left:10vw;
-  top:calc(50vh - 100px);
   background-color: transparent;
   overflow: auto;
 }
@@ -193,10 +184,10 @@ footer {
   display: block;
   line-height: 100px;
   border-radius: 10px;
+  overflow: hidden;
   width: 100px;
   height: 100px;
-  overflow: auto;
-  margin:0 5px;
+  margin:5px;
   background-color: #eb9f12;
 }
 /* End switch user dialog*/
@@ -204,8 +195,11 @@ footer {
 /* Start game page  */
 
 
-#quiz_mode,#practice_mode,.select_operation button, .select_amount button,#c_next:hover{
+#quiz_mode,#practice_mode,.select_operation button, .select_amount button,#c_submit:hover,#c_skip,#c_next,.c_option p,#c_go,.start_btn{
   cursor: pointer;
+}
+.start_btn{
+  margin-top: 20px;
 }
 
 .click {
@@ -227,6 +221,13 @@ footer {
 .c_status{
   width: 60%;
 }
+.game_page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
 .c_status span{
   display: inline-block;
   border-radius: 2px;
@@ -236,12 +237,26 @@ footer {
   text-align: center;
   
 }
-#start_btn,
+.c_msg{
+  height: 8rem;
+  text-align: center;
+}
+
+.c_msg p{
+  width: 100%;
+  height: 3.5rem;
+  padding:10px;
+  border-radius: 10px;
+  
+}
+.start_btn,
 #c_go,
 #c_main,
 #c_profile,
-#c_next{
-  width: 20%;
+#c_submit,
+#c_skip
+{
+  width: 120px;
   font-size:20px;
   border: solid;
   text-align: center;
@@ -251,22 +266,30 @@ footer {
   text-decoration: none;
   border-radius: 12px;
 }
-
+#c_next{
+  font-size:20px;
+  border: solid;
+  text-align: center;
+  background-color: lightseagreen;
+  color: black;
+  padding: 5px;
+  border-radius: 12px;
+}
 .c_option {
-  width: 60%;
-  height: 3vw;
+  width: 100%;
+  height: calc(50px + 1vw);
   margin: 2vw auto;
   overflow: visible;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-top: 3vw;
 }
 
 #c_hole,
 .c_option>p {
-  width: calc(40px + 1vw);
-  height: calc(40px + 1vw);
+  width: calc(50px + 1vw);
+  height: calc(50px + 1vw);
   font-size:calc(16px + 1vw);
   border: 3px solid black;
   border-radius: 50%;
@@ -276,7 +299,7 @@ footer {
 }
 
 .c_screen {
-  width: 80%;;
+  width: 100%;
   font-size:calc(20px + 1vw);
   border-radius: 15vw;
   display: flex;
@@ -289,11 +312,11 @@ footer {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding:1vw 0;
 }
-#c_next{
+#c_submit{
   margin-left: 10px;
 }
 
