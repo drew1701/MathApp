@@ -41,7 +41,7 @@ $(document).ready(function(){
 function indexPageSignIn(){
     $("#first_login").hide()
     $('#welcome').text("Hello, "+curr_user).css("font-size","2em")
-    $(".avatar img").attr("src","../web/images/"+curr_avatar+".svg")
+    $(".avatar img").attr("src","../web/images/"+curr_avatar+".png")
     $("#curr_user").text("hello, "+curr_user)
     sessionStorage.setItem("curr_user",curr_user)
     sessionStorage.setItem("curr_avatar",curr_avatar)

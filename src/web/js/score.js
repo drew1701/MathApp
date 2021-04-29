@@ -34,7 +34,7 @@ $(document).ready(function(){
             
         }
         if(curr_avatar!=null){
-            $("#score_img").attr("src",`../web/images/${curr_avatar}.svg`)
+            $("#score_img").attr("src",`../web/images/${curr_avatar}.png`)
         }
         $("#score_name").text(curr_user==null?'':curr_user)
         $("#best_score").text(bestScore)

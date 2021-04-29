@@ -26,11 +26,12 @@ $(document).ready(function(){
         $("#quiz_mode,#mainB").hide()
         $(".select_operation").show()
         $(".select_operation button").click(function(event) {
+            $('#mainA').focus();
             $(".start_btn").show()
-            $(`#${event.target.id}`).addClass("click")
+            $(`#${event.target.id}`).css("background-image","url('images/open_box.png')")
             for (let i in practice_option) {
                 if (event.target.id != i) {
-                    $(`#${i}`).removeClass("click")
+                    $(`#${i}`).css("background-image","url('images/box.png')")
                 }
                 else  {
                     math=practice_option[i]
@@ -48,10 +49,10 @@ $(document).ready(function(){
         $(".select_amount").show()
         $(".select_amount button").click(function(event) {
             $(".start_btn").show()
-            $(`#${event.target.id}`).addClass("click")
+            $(`#${event.target.id}`).css("background-image","url('images/open_box.png')")
             for (let i in quiz_option) {
                 if (event.target.id != i) {
-                    $(`#${i}`).removeClass("click")
+                    $(`#${i}`).css("background-image","url('images/box.png')")
                 }else {
                     math=5
                     quiz_num=quiz_option[i]
@@ -185,7 +186,7 @@ $(document).ready(function(){
                 }
                 
             }else{
-                $(".c_msg p,#c_next").show()
+                $(".c_msg p,#c_next").fadeIn("slow")
                 $(".c_msg p").css("background-color","green")
                 $(".c_msg p").text("Good job, You must feel so proud of yourself")
                 $("#c_submit").hide()
@@ -217,6 +218,8 @@ $(document).ready(function(){
                 $("#c_hole").text("?")
                 $(".c_msg p").show()
                 $(".c_msg p").css("background-color","red")
+                $(".c_msg p").fadeOut()
+                $(".c_msg p").fadeIn()
                 $(".c_msg p").text("Keep on trying! Pick another answer")
             }
             

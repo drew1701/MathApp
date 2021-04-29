@@ -12,7 +12,16 @@ var avatars=[
     "avatar7",
     "avatar8",
     "avatar9",
-    "avatar10"
+    "avatar10",
+    "avatar11",
+    "avatar12",
+    "avatar13",
+    "avatar14",
+    "avatar15",
+    "avatar16",
+    "avatar17",
+    "avatar18",
+    "avatar19"
 ]
 $(document).ready(function(){
     // display avaliable avatars when new player enter the name
@@ -22,7 +31,7 @@ $(document).ready(function(){
     }
     for (let i in users){
                 
-        $(".dialog").append(`<div id=${users[i].user}_${users[i].avatar} style=background-image:url(../web/images/${users[i].avatar}.svg)>${users[i].user} </div>`)
+        $(".dialog").append(`<div id=${users[i].user}_${users[i].avatar} style=background-image:url(../web/images/${users[i].avatar}.png)>${users[i].user} </div>`)
     }    
     $(".dialog div").click(function(event){        
         let selected=event.target.id
@@ -38,7 +47,7 @@ $(document).ready(function(){
     $("#name").change(function(){
         $("#avatar_option img").remove()
         for(let i=0;i<avatars.length;i++){
-            $("#avatar_option").append(`<img id=${avatars[i]}  src=./images/${avatars[i]}.svg alt="avatar" width="30" height="30">`)
+            $("#avatar_option").append(`<img id=${avatars[i]}  src=./images/${avatars[i]}.png alt="avatar" width="80" height="80">`)
         }
         let n=$(this).val()
         console.log(n)
@@ -51,7 +60,7 @@ $(document).ready(function(){
                 $(`#${taken_avatar}`).remove()
             }
         }
-        $("#avatar_option img").hover(function(){$(this).css("background-color","#eb9f12")},function(){$(this).css("background-color","white")})
+        $("#avatar_option img").hover(function(){$(this).css("background-color","#eb9f12")},function(){$(this).css("background-color","transparent")})
     $("#avatar_option img").click(function(event){
         $(".choose_avatar label").text("Avatar for you:").css("color","black")
         avatar_create=true
