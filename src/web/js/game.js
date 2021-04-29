@@ -26,12 +26,11 @@ $(document).ready(function(){
         $("#quiz_mode,#mainB").hide()
         $(".select_operation").show()
         $(".select_operation button").click(function(event) {
-            $('#mainA').focus();
             $(".start_btn").show()
-            $(`#${event.target.id}`).css("background-image","url('images/open_box.png')")
+            $(`#${event.target.id}`).css("animation","openBox 0.3s linear forwards")
             for (let i in practice_option) {
                 if (event.target.id != i) {
-                    $(`#${i}`).css("background-image","url('images/box.png')")
+                    $(`#${i}`).css("animation","closeBox 0.3s linear forwards")
                 }
                 else  {
                     math=practice_option[i]
@@ -49,10 +48,10 @@ $(document).ready(function(){
         $(".select_amount").show()
         $(".select_amount button").click(function(event) {
             $(".start_btn").show()
-            $(`#${event.target.id}`).css("background-image","url('images/open_box.png')")
+            $(`#${event.target.id}`).css("animation","openBox 0.3s linear forwards")
             for (let i in quiz_option) {
                 if (event.target.id != i) {
-                    $(`#${i}`).css("background-image","url('images/box.png')")
+                    $(`#${i}`).css("animation","closeBox 0.3s linear forwards")
                 }else {
                     math=5
                     quiz_num=quiz_option[i]

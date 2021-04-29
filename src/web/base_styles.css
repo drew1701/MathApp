@@ -62,7 +62,7 @@ main {
 }
 
 #mainA, #mainB { /* setup columns in main body */
-  
+
   border-style: solid; 
   padding: 20px;
   display: flex;
@@ -413,6 +413,21 @@ footer {
 #c_submit{
   margin-left: 10px;
 }
+@keyframes openBox {
+  
+  100%{
+    background-image:url('images/open_box.png')
+  }
+}
+
+@keyframes closeBox {
+  
+  100%{
+    background-image:url('images/box.png')
+  }
+}
+  
+  
 
 
 
