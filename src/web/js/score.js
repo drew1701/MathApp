@@ -12,26 +12,8 @@ $(document).ready(function(){
     var curr_avatar=sessionStorage.getItem("curr_avatar")
     console.log(kid,curr_user,curr_avatar)
     update_score()
-    $(".dialog div").click(function(event){
-        $(".layer").addClass("hide")
-        $(".index_page").show()
-        
-        let selected=event.target.id
-        console.log(selected)
-        $(".dialog").fadeOut()
-        if(selected=="new"){
-            window.location.assign("login.html")
-        }else{
-            curr_user=selected.split("_")[0]
-            curr_avatar=selected.split("_")[1]
-            $("#score_img").attr("src",`../web/images/${curr_avatar}.svg`)
-            
-        $(".avatar img").attr("src",'../web/images/'+curr_avatar+'.svg')
-        $("#curr_user").text("hello, "+curr_user)
-        sessionStorage.setItem("curr_user",curr_user)
-        sessionStorage.setItem("curr_avatar",curr_avatar)
-        }
-        update_score()
+    $("#change_user").click(function(){
+        window.location.assign("login.html")
     })
 // function to update profile data, get invoked every time switch user
     function update_score(){
@@ -52,7 +34,7 @@ $(document).ready(function(){
             
         }
         if(curr_avatar!=null){
-            $("#score_img").attr("src",`../web/images/${curr_avatar}.svg`)
+            $("#score_img").attr("src",`../web/images/${curr_avatar}.png`)
         }
         $("#score_name").text(curr_user==null?'':curr_user)
         $("#best_score").text(bestScore)
