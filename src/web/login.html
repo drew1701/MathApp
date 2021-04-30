@@ -32,7 +32,7 @@
 
 <nav>
   <div class="pill"><a href="index.html">Home</a></div>
-  <div class="pill"><a href="select_game.html">Games</a></div>
+  <div class="pill"><a href="select_game.html">New Game</a></div>
   <div class="pill"><a href="scores.html">Scores</a></div>
   <div class="user pill">
     <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
@@ -47,21 +47,21 @@
 
 <main>
   <div id="mainA">
-    <p>Let us know who you are and pick an avatar</p>
-    <p>Here are instructions</p>
+    <p>If you have logged in before, click on your avatar below.</p>
+    <div class="dialog"></div>
   </div>
   
   <div id="mainB">
     <form >
       <fieldset>
-        <legend>Hello, let me know about you.</legend>
+        <legend>If you new here, tell me about yourself.</legend>
         <div class="choose_name">
           <label for="name">Name:</label>
           <input type="text" id="name" name="name" value="" required><br><br>
         </div>
         <div class="choose_avatar">
           <label for="avatar">Avatar:</label><br><br>
-          <div id="selected_avatar" name="avatar"></div>
+          <div id="avatar_option"></div>
         </div>
         <br><br>
         <div class="form_submit">
@@ -70,7 +70,7 @@
         
       </fieldset>
     </form>
-    <div id="avatar_option"></div>
+    
   </div>
   
 </main>
