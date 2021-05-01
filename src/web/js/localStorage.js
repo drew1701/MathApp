@@ -21,10 +21,7 @@ $(document).ready(function(){
             }
             else{
                 $("#first_login").show()            
-            }
-            
-            
-            
+            } 
         }else{
             $("#first_login").text("Sign in")
         }

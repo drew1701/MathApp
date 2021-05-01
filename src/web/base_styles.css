@@ -1,9 +1,5 @@
 /* CNIT195 Math App3 Base CSS Stylesheet */
 
-@font-face{
-  font-family: smilen;
-  src: url("images/Smilen.otf") format("opentype");
-}
 
 * {
   box-sizing: border-box;
@@ -45,10 +41,8 @@ nav {
 
 div.pill { /* makes "buttons" in navbar for links and playername */
   background-color: white;
-
   border-style: dashed;
   border-radius: .5em;
-  
   padding: .5em 1.5em;
 }
 
@@ -56,8 +50,8 @@ div.pill { /* makes "buttons" in navbar for links and playername */
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
-  font-family: smilen;
   font-size: 180%;
+  background-color: white;
   
 }
 
