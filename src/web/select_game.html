@@ -7,10 +7,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="base_styles.css">
 
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="js/sessionStorage.js"></script>
+  <script src="js/localStorage.js"></script>
+  <script src="js/game.js" defer></script>
+
 </head>
 
 <body>
 
+  <div class="layer hide"></div>
+  <div class="dialog"></div>
 <header>
     <img src="images/logo.png" width="121" height="96">
     <h1>Math Game</h1>
@@ -21,21 +29,74 @@
 
 <nav>
     <div class="pill"><a href="index.html">Home</a></div>
-    <div class="pill"><a href="select_game.html">Games</a></div>
+    <div class="pill"><a href="select_game.html">New Game</a></div>
     <div class="pill"><a href="scores.html">Scores</a></div>
-    <div class="pill">PlayerName</div>
+    <div class="user pill">
+      <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+      <div class="user_login">
+        <div id="curr_user">Guest</div>
+        <a id="new_player" href="login.html">New Player?</a>
+      </div>
+    </div>
  
 </nav>
 <p></p>
 
 <main>
   <div id="mainA">
-    <p>Here are Practice Mode options</p>
+    <p id="a_msg">Improve your selected math problem.</p>
+    <button id="practice_mode">Practice Mode</button>
+    <div class="select_operation">
+      <button id='add'>Addition</button>
+      <button id='sub'>Subtraction</button>
+      <button id='mul'>Multiplication</button>
+      <button id='div'>Division</button>
+    </div>
+    <button  class="start_btn">Start</button>
   </div>
   
   <div id="mainB">
-    <p>Here are Quiz Mode options</p>
+    <p id="b_msg">Challenge yourself </p>
+    <button id="quiz_mode">Quiz Mode</button>
+    <div class="select_amount">
+      <button id="_10">10 questions</button>
+      <button id="_20">20 questions</button>
+      <button id="_30">30 questions</button>
+    </div>
+    <button class="start_btn">Start</button>
+    <section class="game_page">
+      <div class="c_infoBar">
+        <span id="question">Question left:<span>0 </span></span>
+        <span id="correct">Correct:<span> 0</span></span>
+      </div>
+
+      <div class="c_ans">
+        <div class="c_option">
+          <p id="c_option1"></p>
+          <p id="c_option2"></p>
+          <p id="c_option3"></p>
+          <p id="c_option4"></p>
+        </div>
+        <div class="c_screen">
+          <p id="c_display"></p>
+          <p id="c_hole">?</p>
+          <p id="c_submit">Submit</p>
+        </div>
+        <div class="c_msg">
+          <p>Let's go my friend</p>
+          <button id="c_next">Go next Question</button>
+        </div>
+        <div class="c_status"></div>
+        <div class="c_btn">
+          <a id="c_main" href="select_game.html">New Game</a>
+          <input type="button" value="Skip" id="c_skip">
+          <input id="c_go" type="button" value="Go">
+          <a id="c_profile" href="scores.html">Score</a>
+        </div>
+    </section>
+    
   </div>
+    
   
 </main>
 <p></p>
