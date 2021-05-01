@@ -5,91 +5,54 @@
   <meta charset="utf-8" />
   <meta name="description" content="CNIT195 WeCodeEdu Math App">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <link rel="stylesheet" href="base_styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="./js/localStorage.js"></script>
 
-  
-  <script>
-    
-function myFunction() {
-  var showList = document.getElementById("menul");
-  if (showList.style.display === "block") {
-    showList.style.display = "none";
-  } else {
-    showList.style.display = "block";
-  }
-}
-
-  </script>
 </head>
 
 <body>
-    <div class="layer hide"></div>
-    <div class="dialog"></div>
-
 <header>
-    <img  src="images/logo.png" >
+    <img src="images/logo.png" width="121" height="96">
     <h1>Math Game</h1>
-    <img class="NoDisplayMobile" src="images/logo.png" > 
+    <img class="NoDisplayMobile" src="images/logo.png" width="121" height="96"> 
 
 </header>
+<p></p>
 
 <nav>
-  <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-    
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-        
-<ul class="menu" id="menul">
-<li class="links"> <a href="index.html">Home</a></li>
-<li class="links"> <a href="select_game.html">Games</a></li>
-<li class="links"> <a href="scores.html">Scores</a></li>
-</ul>
-
-
-<div class="user pill">
-    <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
-    <div class="user_login">
-      <div id="curr_user">Guest</div>
-      <a id="new_player" href="login.html">New Player?</a>
-    </div>
-  </div>
-
-  
-</nav> 
-  <!--
-<nav>
-
-    <div class="pil"><a href="index.html">Home</a></div>
-    <div class="pill"><a href="select_game.html">Games</a></div>
+    <div class="pill"><a href="index.html">Home</a></div>
+    <div class="pill"><a href="select_game.html">New Game</a></div>
     <div class="pill"><a href="scores.html">Scores</a></div>
-    <div class="pill">PlayerName</div>
+    <div class="user pill">
+      <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+      <div class="user_login">
+        <div id="curr_user">Guest</div>
+        <a id="new_player" href="login.html">New Player?</a>
+      </div>
+    </div>
  
-</nav>-->
-
+</nav>
+<p></p>
 
 <main>
   <div id="mainA">
-    <p>Welcome to Math Game from Kids Are Us</p>
-    <p>Here is info about the game</p>
+    <small id="welcome">Hello, My Friend</small>
+    <h1>Welcome to our <br>3<small>rd</small> Grade<br>MATH Game<br> from Kids Are Us</h1>
   </div>
   
   <div id="mainB">
-      <div>
-        <button id="first_login">Sign in</button>
-        <button id="change_user" class="index_page">Switch User</button>
-        <button id="discover_btn">Discover</button>
-      </div>
-  
+    <div>
+      <button id="first_login">Switch User</button>
+      <button id="discover_btn">Discover</button>
     </div>
+
+  </div>
   
 </main>
-
+<p></p>
 
 <footer>
   <div id="footLeft">
@@ -109,10 +72,12 @@ function myFunction() {
   </div>
   
 </footer>
+<p></p>
 
+<p></p>
+<p></p>
+<p></p>
 
-    
-    
 </body>
 
 </html>

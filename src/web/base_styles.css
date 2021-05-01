@@ -5,93 +5,76 @@
   src: url("images/Smilen.otf") format("opentype");
 }
 
-/* CNIT195 Math App3 Base CSS Stylesheet */
-
-
-
 * {
   box-sizing: border-box;
+  
 }
 
 
 body { 
   background-image: url(images/svg_bg1.svg);
-
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: auto;
+  margin: 0;
   
   
 }
 
 
 header {
- background-color:#27998a;
+  background-color: bisque;
 
- 
-
-  /*border-style: solid;*/
+  border-style: solid;
   border-radius: 1em;
   
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   justify-content: space-evenly;
-  
 
 }
 
 
 nav {
-
   display: flex; /* setup Flexbox container */
   justify-content: space-evenly;
-
-
-  background-color: #e97415;
-
+  font-family: Arial, Helvetica, sans-serif;
 
 }
 
-/* makes "buttons" in navbar for links and playername */
 
-.pill { 
+div.pill { /* makes "buttons" in navbar for links and playername */
+  background-color: white;
 
-
- /* border-style: dashed;*/
+  border-style: dashed;
   border-radius: .5em;
   
   padding: .5em 1.5em;
-
 }
+
+
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
- 
-}
-#mainA, #mainB { /* setup columns in main body */
- 
-  background-color:green;
- /* border-style: solid; */
-
-  padding : 10px 20px;
-  height: 50vh;
-  text-align: center;
- 
+  font-family: smilen;
+  font-size: 180%;
   
 }
-/* new*/
-#mainA{
-  background :  #4bcbeb url(images/math-symbols-clipart-2.png) no-repeat bottom;
-  border-right-color: #dceaee;
-  border-right-style: inset;
+
+#mainA, #mainB { /* setup columns in main body */
+
+  border-style: solid; 
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
+
 footer {
-  background-color: #27998a;
-  background-color:yellow;
-  /*border-style: solid;*/
+  background-color: bisque;
+  border-style: solid;
   border-radius: 1em;
   padding: 5px 20px;
   
@@ -100,6 +83,7 @@ footer {
   align-items: center;
 
 }
+
 #footMid {
   text-align: center;
 }
@@ -111,107 +95,67 @@ footer {
   
 }
 
-/* changes made for nav bar  */
-
-
-ul { 
-  list-style-type: none;
-  text-align: center;
-  padding: 20px 10px 15px;
-  justify-self: center;
-   
-  }
-ul li { 
-     display: inline;
-     padding: 10px;
-     font-size: 1.5em;
-     margin: 30px;
-    
-     }
-     
-a { text-decoration: none; }
-a:link { color: navy; }
-a:visited { color: purple; }
-a:hover { color: skyblue; }
-
-nav .icon{display: none;}    /* icon class added */
-
-
-
 
 /* BEGIN mobile layout settings 767px wide and below */
 @media screen and (max-width: 767px) {
-  header,  main, footer { /* excluded nav */
+  header, nav, main, footer {
     flex-direction: column;
   }
+  
+  nav, header {
+    text-align: center;
+  }
+  
+  header img {
+    margin: auto;
+  }
+  
   .NoDisplayMobile { 
     display: none;
   }
   
- div.pill,.user_login {   
-   display: flex; 
-   justify-content: space-evenly;  
-   width: 80%;
+  div.pill {
+    width: 80%;
     margin: auto;
-    margin-right: 0px;
-    
   }
   
   #footLeft, #footRight {
     text-align: center;
   }
-  /* changes made to add hamburger menu */
-  header {
-    text-align: center;
-    height: 60px;
-    margin: 0px;
+ 
+  .select_operation button, .select_amount button{
+    width: 125px;
+    height: 125px;
+    line-height: 250px;
+    font-weight: 900;
+    border-style: none;
+    background-color: transparent;
+    background-image: url(images/box.png);
+    background-size: cover;
   }
-  
-  header img {
-   width: 40px;
-   height: 40px;
-   margin: 10px;
-   
+  #practice_mode,#quiz_mode{
+    width: 250px;
+    height: 150px;
+    line-height: 225px;
+    border-style: none;
+    color: red;
+    text-shadow: 0 2px 4px lightcoral;
+    font-size: large;
+    background-color: transparent;
+    background-image: url(images/mode.png);
+    background-size: cover;
   }
-  h1{font-size: 20px;}
-
-  ul {
-    
-    margin: 0px;
-    padding: 0px;
-    width: 80px;  
+  .select_operation{
+    display: grid;
+    width: 90%;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
   }
-  .menu li{
-    font-size: 16px;
-    padding: 15px 5px;
-   
+  .select_amount{
+    display: flex;
+    flex-direction: column;
   }
-  a{
-    color: white;
-  }
-  a:hover{
-    text-decoration: underline;
-  }
-  
-  .menu li a {
-    display: block; 
-    background-color: white;
-  }
-  
-  
- nav .icon{
-  
-    display: block;
-    padding: 10px;
-   
-    
-  }
-  .menu{
-    display: none;
-  }
-  
-
-  
 }  /* END mobile layout settings 767px wide and below */
 
 
@@ -236,11 +180,42 @@ nav .icon{display: none;}    /* icon class added */
     flex: 50%;
   }
   
-  
   #footRight {
     flex: 25%;
     text-align: right;
   }
+  #practice_mode,#quiz_mode{
+    width: 500px;
+    height: 300px;
+    line-height: 450px;
+    border-style: none;
+    color: red;
+    text-shadow: 0 2px 4px lightcoral;
+    font-size: larger;
+    background-color: transparent;
+    background-image: url(images/mode.png);
+    background-size: cover;
+  }
+  .select_operation button, .select_amount button{
+    width: 250px;
+    height: 250px;
+    line-height: 500px;
+    font-weight: 900;
+    border-style: none;
+    background-color: transparent;
+    background-image: url(images/box.png);
+    background-size: cover;
+  }
+  .select_operation{
+    display: grid;
+    width: 90%;
+    justify-items: center;
+    grid-template-columns: repeat(2,1fr);
+  }
+  .select_amount{
+    display: flex;
+  }
+  
 }  /* END tablet layout settings 768px wide */
 
 
@@ -251,159 +226,190 @@ nav .icon{display: none;}    /* icon class added */
     margin: auto;
   }
 
-
 }  /* END desktop layout settings 1024px wide */
 
-
 /* Start switch user dialog*/
-.avatar img, #score_img{
-border: 1px solid black;
-background-color: lightblue;
-padding:5px;
-border-radius: 50%;
-}
-.layer{
-z-index:500;
-position: fixed;
-width:100vw; 
-height:100vh; 
-left: 0%;
-top: 0%;
-background-color: black;
-opacity: 0.6;
-}
-.hide{
-display: none;
+.form_submit{
+  text-align: center;
 }
 .dialog{
-position: fixed;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-z-index:1000;
-width:80vw;
-left:10vw;
-top:calc(50vh - 100px);
-background-color: transparent;
-overflow: auto;
+  
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  overflow: auto;
 }
 .dialog div{
-background-size:contain;
-background-repeat: no-repeat;
-text-align: center;
-font-size: 1.5rem;
-font-weight: bolder;
-display: block;
-line-height: 100px;
-border-radius: 10px;
-width: 100px;
-height: 100px;
-overflow: auto;
-margin:0 5px;
-background-color: #eb9f12;
+  background-size:contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  display: block;
+  line-height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100px;
+  height: 150px;
+  margin:5px;
+  background-color: #eb9f12;
 }
 /* End switch user dialog*/
 
 /* Start game page  */
 
 
-#quiz_mode,#practice_mode,.select_operation button, .select_amount button,#c_next,#c_skip:hover{
-cursor: pointer;
+#quiz_mode,#practice_mode,.select_operation button, .select_amount button,#c_submit:hover,#c_skip,#c_next,.c_option p,#c_go,.start_btn,.form_submit input {
+  cursor: pointer;
 }
 
-.click {
-background-color: rgb(220, 62, 225);
-color: lightgrey;
-}
 
+.start_btn{
+  margin-top: 20px;
+}
 
 .c_btn,
 .c_infoBar {
-margin-top: 2vw;
-font-size:calc(12px + 1vw);
-width: 100%;
-display: flex;
-justify-content: space-around;
-align-items: center;
+  margin-top: 2vw;
+  font-size:calc(12px + 1vw);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .c_status{
-width: 60%;
+  width: 60%;
+}
+.game_page{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 .c_status span{
-display: inline-block;
-border-radius: 2px;
-width: 30px;
-height: 30px;
-border: 1px solid black;
-text-align: center;
-
+  display: inline-block;
+  border-radius: 2px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  text-align: center;
+  
 }
-#start_btn,
+.c_msg{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.c_msg p{
+  width: 100%;
+  padding:10px;
+  border-radius: 10px;
+  
+}
+.start_btn,
 #c_go,
 #c_main,
 #c_profile,
-#c_next,#c_skip{
-width: 20%;
-font-size:20px;
-border: solid;
-text-align: center;
-background-color: yellow;
-color:red;
-padding: 5px;
-text-decoration: none;
-border-radius: 12px;
+#c_submit,
+#c_skip,
+.form_submit input
+{
+  font-family: Arial, Helvetica, sans-serif;
+  width: 120px;
+  font-size:20px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: bisque;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 12px;
+  box-shadow: 0 6px rgb(201, 201, 206);
+}
+.start_btn:active,
+#c_go:active,
+#c_main:active,
+#c_profile:active,
+#c_submit:active,
+#c_skip:active,
+.form_submit input:active{
+  box-shadow: 0 2px rgb(127, 127, 131);
+  transform: translateY(4px);
 }
 
+#c_next{
+  font-size:20px;
+  border: none;
+  text-align: center;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px lightseagreen,-2px -2px 2px 2px lightseagreen;
+  color: black;
+  padding: 5px;
+  border-radius: 12px;
+  animation:btn 0.5s linear infinite;
+  margin-top: 0;
+}
+@keyframes btn{
+  0%{
+    box-shadow:-8px 2px 2px 2px lightseagreen
+  }
+  50%{
+    box-shadow:2px 8px 2px 2px lightseagreen
+  }
+  75%{
+    box-shadow:8px 2px 2px 2px lightseagreen
+  }
+  100%{
+    box-shadow:2px -8px 2px 2px lightseagreen
+  }
+}
 .c_option {
-width: 60%;
-height: 3vw;
-margin: 2vw auto;
-overflow: visible;
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 3vw;
+  width: 100%;
+  height: calc(50px + 1vw);
+  margin: 2vw auto;
+  overflow: visible;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3vw;
 }
 
 #c_hole,
 .c_option>p {
-width: calc(40px + 1vw);
-height: calc(40px + 1vw);
-font-size:calc(16px + 1vw);
-border: 3px solid black;
-border-radius: 50%;
-display: flex;
-justify-content: center;
-align-items: center;
+  width: calc(50px + 1vw);
+  height: calc(50px + 1vw);
+  font-size:calc(16px + 1vw);
+  border: 3px solid black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .c_screen {
-width: 80%;;
-font-size:calc(20px + 1vw);
-border-radius: 15vw;
-display: flex;
-justify-content: center;
-align-items: center;
+  width: 100%;
+  font-size:calc(20px + 1vw);
+  border-radius: 15vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .c_ans {
-width: 100%;
-height: 100%;
-display: flex;
-flex-direction: column;
-justify-content: space-around;
-align-items: center;
-padding:1vw 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding:1vw 0;
 }
-#c_next{
-margin-left: 10px;
-}
-#c_skip{
-margin-left: 15px;
-}
-
 #c_submit{
   margin-left: 10px;
 }
@@ -422,4 +428,7 @@ margin-left: 15px;
 }
   
   
+
+
+
 /* End game page */
