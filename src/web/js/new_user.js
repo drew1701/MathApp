@@ -24,6 +24,7 @@ var avatars=[
     "avatar19"
 ]
 $(document).ready(function(){
+    $(".choose_avatar label").css("color","red")
     // display avaliable avatars when new player enter the name
     var users=JSON.parse(localStorage.getItem("kid"))
     if(users==null){
@@ -39,8 +40,12 @@ $(document).ready(function(){
         window.location.assign("index.html")        
             curr_user=selected.split("_")[0]
             curr_avatar=selected.split("_")[1]
-            console.log(curr_user,curr_avatar)
-            indexPageSignIn()
+            // indexPageSignIn()
+            sessionStorage.setItem("status","on")
+        sessionStorage.setItem("curr_user",curr_user)
+        sessionStorage.setItem("curr_avatar",curr_avatar)
+        localStorage.setItem("last_user",curr_user)
+            console.log(curr_user,curr_avatar,localStorage.getItem("last_user"))
         
     })
 
@@ -60,9 +65,8 @@ $(document).ready(function(){
                 $(`#${taken_avatar}`).remove()
             }
         }
-        $("#avatar_option img").hover(function(){$(this).css("background-color","#eb9f12")},function(){$(this).css("background-color","transparent")})
     $("#avatar_option img").click(function(event){
-        $(".choose_avatar label").text("Avatar for you:").css("color","black")
+        $(".choose_avatar label").text("")
         avatar_create=true
         let curr_avatar=event.target.id
         $(`#${curr_avatar}`).css("border","2px solid black")
@@ -81,7 +85,9 @@ $(document).ready(function(){
 
     // localstorage, seesionstorage, page user info will be updated once hit submit button
     $(".form_submit input").click(function(){
-        if($("form").valid()){
+        if($("#name").val()==""){
+            $(".choose_avatar label").text("put your name and pick your avatar")
+        }else{
             if(!avatar_create){
                 $(".choose_avatar label").text("pick your avatar").css("color","red")
             }else{
@@ -95,6 +101,8 @@ $(document).ready(function(){
             $(".avatar img").attr("src",img)
             localStorage.setItem("kid",JSON.stringify(kid))
             sessionStorage.setItem("curr_user",new_name)
+            sessionStorage.setItem("status","on")
+            localStorage.setItem("last_user",new_name)
             console.log("check")
             window.location.assign("index.html")  
             }
@@ -102,5 +110,10 @@ $(document).ready(function(){
         }
         
     })
+    $("#logout").click=function(){
+        sessionStorage.setItem("status","off")
+        sessionStorage.removeItem("curr_user")
+        sessionStorage.removeItem("curr_avatar")
+    }
 
 })
