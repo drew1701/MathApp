@@ -142,6 +142,7 @@ $(document).ready(function(){
             $("#correct span").text(correct_ques)
 
             // start update localstorage for practice mode
+            if(sessionStorage.getItem("status")=="on"){
             if(!quiz){
                 let kid=JSON.parse(localStorage.getItem("kid"))
             let index_user=0;
@@ -174,6 +175,7 @@ $(document).ready(function(){
             
             // End update localstorage for practice mode
             }
+        }
 
             if(quiz){
                 $(".c_status").append(`<span>${total_ques}</span>`)
@@ -236,8 +238,9 @@ $(document).ready(function(){
     
             // update localstorage data
             console.log(math,correct_ques/total_ques*100)
-            let kid=JSON.parse(localStorage.getItem("kid"))
-            let score=correct_ques/total_ques*100
+            if(sessionStorage.getItem("status")=="on"){
+                let kid=JSON.parse(localStorage.getItem("kid"))
+                let score=correct_ques/total_ques*100
                 let index_user=0;
                 for(let i in kid){
                     if(kid[i].user==curr_user.trim() && kid[i].avatar==curr_avatar){
@@ -254,6 +257,8 @@ $(document).ready(function(){
     
                 console.log(kid[index_user])
                 localStorage.setItem("kid",JSON.stringify(kid))
+            }
+            
                 
         }
         
@@ -264,6 +269,11 @@ $(document).ready(function(){
         $("#c_hole").text("?")
         $(".c_msg p").text("Don't give up")
         $(".c_msg p").css("background-color","transparent")
+    })
+    $("#logout").click(function(){
+        sessionStorage.setItem("status","off")
+        sessionStorage.removeItem("curr_user")
+        sessionStorage.removeItem("curr_avatar")
     })
 })
 
