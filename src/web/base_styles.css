@@ -24,9 +24,7 @@ body {
 
 header {
   background-color: bisque;
-
-  border-style: solid;
-  border-radius: 1em;
+  border-radius: .8em;
   
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
@@ -45,11 +43,10 @@ nav {
 
 div.pill { /* makes "buttons" in navbar for links and playername */
   background-color: white;
-
   border-style: dashed;
   border-radius: .5em;
-  
   padding: .5em 1.5em;
+  align-content: center;
 }
 
 
@@ -57,15 +54,16 @@ main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   font-family: smilen;
-  font-size: 180%;
   
 }
 
 #mainA, #mainB { /* setup columns in main body */
+  background-color: white;  
 
-  border-style: solid; 
+  border-radius: .8em;  
   padding: 20px;
   display: flex;
+  
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -74,9 +72,9 @@ main {
 
 footer {
   background-color: bisque;
-  border-style: solid;
-  border-radius: 1em;
+  border-radius: .8em;
   padding: 5px 20px;
+  font-size: .9em;
   
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
@@ -95,7 +93,7 @@ footer {
   
 }
 
-
+/* Need to Move Media Queries to the end of the css file */
 /* BEGIN mobile layout settings 767px wide and below */
 @media screen and (max-width: 767px) {
   header, nav, main, footer {
@@ -427,8 +425,10 @@ footer {
   }
 }
   
-  
-
-
-
 /* End game page */
+
+
+
+
+
+
