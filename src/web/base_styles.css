@@ -2,8 +2,7 @@
 
 
 * {
-  box-sizing: border-box;
-  
+  box-sizing: border-box;  
 }
 
 
@@ -12,22 +11,17 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
-  
-  
+  margin: 0;  
 }
 
 
 header {
-  background-color: bisque;
-
-  border-style: solid;
+  background-color: lemonchiffon;
   border-radius: 1em;
   
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   justify-content: space-evenly;
-
 }
 
 
@@ -50,14 +44,14 @@ div.pill { /* makes "buttons" in navbar for links and playername */
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
-  font-size: 180%;
-  background-color: white;
   
 }
 
 #mainA, #mainB { /* setup columns in main body */
-
-  border-style: solid; 
+  background-color: white;
+  border-style: solid;
+  border-color: purple;
+  border-radius: 1em;  
   padding: 20px;
   display: flex;
   flex-direction: column;
@@ -67,15 +61,13 @@ main {
 
 
 footer {
-  background-color: bisque;
-  border-style: solid;
+  background-color: lemonchiffon;
   border-radius: 1em;
   padding: 5px 20px;
-  
+  font-size: .9em;
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   align-items: center;
-
 }
 
 #footMid {
@@ -85,8 +77,7 @@ footer {
 .footSocial {
   width: 50px;
   height: 50px;
-  margin: 10px;
-  
+  margin: 10px;  
 }
 
 
@@ -426,9 +417,6 @@ footer {
 #new_player,#logout{
   font-size:xx-small;
 }
-
-  
-
 
 
 /* End game page */
