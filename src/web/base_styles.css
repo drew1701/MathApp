@@ -48,6 +48,7 @@ main {
 }
 
 #mainA, #mainB { /* setup columns in main body */
+  width: 96%;
   background-color: white;
   border-style: solid;
   border-color: purple;
@@ -104,6 +105,10 @@ footer {
     margin: auto;
   }
   
+  main {
+    align-items: center;
+  }
+  
   #footLeft, #footRight {
     text-align: center;
   }
@@ -151,10 +156,12 @@ footer {
     flex-direction: row;
   }  
   
-  
+  main {
+    justify-content: space-between;
+  }
 
   #mainA, #mainB { /* setup columns in main body */
-    flex: 50%; 
+    width: 49%; 
   }
 
   #footLeft {
