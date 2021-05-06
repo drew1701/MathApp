@@ -35,14 +35,14 @@ $(document).ready(function(){
         }else{
             subject="Division - A mathematical operation that break a number up into an equal number of parts"
         }
-            $("#c_display").html("Press <button id=c_go>Go</button> to begin")
+            $("#c_display").html("Press <button class=c_go>Go</button> to begin")
             $(".select_operation, .select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
             $(".game_page").show()
             $("#question span").text(quiz_num)
-            $('#c_go').click(function() {
+            $('.c_go').click(function() {
                 generateQuestion(math)
                 $(".c_option,#c_hole,#c_submit,#c_skip,.c_msg").show()
-                $('#c_go').hide()
+                $('.c_go').hide()
             })
             for (let i in practice_option) {
                     math=practice_option[i]
@@ -66,10 +66,15 @@ $(document).ready(function(){
                 math=5
                 quiz_num=quiz_option[i]
             }
-            $("#c_display").html("Press Go to begin")
+            $("#c_display").html("Press <button class=c_go>Go</button> to begin")
             $(".select_operation, .select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
             $(".game_page").show()
             $("#question span").text(quiz_num)
+            $('.c_go').click(function() {
+                generateQuestion(math)
+                $(".c_option,#c_hole,#c_submit,c_status").show()
+                $(".c_go,#c_main,#c_profile").hide()
+            })
             quiz=true
             $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
             $('#c_profile').hide()
@@ -91,21 +96,7 @@ $(document).ready(function(){
         $("#c_hole").text(element.text())
     })
 
-    $('#c_go').click(function() {
-        generateQuestion(math)
     
-        $(".c_option,#c_hole,#c_submit").show()
-        console.log(quiz)
-        if (quiz) {
-            $("#c_go,#c_main,#c_profile").hide()
-            $(".c_status").show()
-        } else {
-            $("#c_skip,.c_msg").show()
-            $('#c_go').hide()
-        }
-
-
-    })
     // next button to generate new question
     $("#c_submit").click(function() {
         let input_ans = $("#c_hole").text()
