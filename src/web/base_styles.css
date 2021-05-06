@@ -148,39 +148,7 @@ footer {
     order: 2;
   }
  
-  .select_operation button, .select_amount button{
-    width: 125px;
-    height: 125px;
-    line-height: 250px;
-    font-weight: 900;
-    border-style: none;
-    background-color: transparent;
-    background-image: url(images/box.png);
-    background-size: cover;
-  }
-  #practice_mode,#quiz_mode{
-    width: 250px;
-    height: 150px;
-    line-height: 225px;
-    border-style: none;
-    color: red;
-    text-shadow: 0 2px 4px lightcoral;
-    font-size: large;
-    background-color: transparent;
-    background-image: url(images/mode.png);
-    background-size: cover;
-  }
-  .select_operation{
-    display: grid;
-    width: 90%;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .select_amount{
-    display: flex;
-    flex-direction: column;
-  }
+ 
 }  /* END mobile layout settings 767px wide and below */
 
 
@@ -213,6 +181,7 @@ footer {
 
   #mainA, #mainB { /* setup columns in main body */
     width: 49%; 
+    text-align: center;
   }
 
   .break {
@@ -232,36 +201,12 @@ footer {
     text-align: right;
   }
   #practice_mode,#quiz_mode{
-    width: 500px;
-    height: 300px;
-    line-height: 450px;
-    border-style: none;
-    color: red;
-    text-shadow: 0 2px 4px lightcoral;
-    font-size: larger;
-    background-color: transparent;
-    background-image: url(images/mode.png);
-    background-size: cover;
+    border-style: solid;   
   }
   .select_operation button, .select_amount button{
-    width: 250px;
-    height: 250px;
-    line-height: 500px;
-    font-weight: 900;
-    border-style: none;
-    background-color: transparent;
-    background-image: url(images/box.png);
-    background-size: cover;
+    border-style: solid;
   }
-  .select_operation{
-    display: grid;
-    width: 90%;
-    justify-items: center;
-    grid-template-columns: repeat(2,1fr);
-  }
-  .select_amount{
-    display: flex;
-  }
+  
   
 }  /* END tablet layout settings 768px wide */
 
@@ -353,7 +298,6 @@ footer {
   
 }
 .start_btn,
-#c_go,
 #c_main,
 #c_profile,
 #c_submit,
@@ -373,7 +317,6 @@ footer {
   box-shadow: 0 6px rgb(201, 201, 206);
 }
 .start_btn:active,
-#c_go:active,
 #c_main:active,
 #c_profile:active,
 #c_submit:active,
