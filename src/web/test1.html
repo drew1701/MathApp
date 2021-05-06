@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TEST PAGE: Math Game - WeCodeEdu</title>  
+  <meta charset="utf-8" />
+  <meta name="description" content="CNIT195 WeCodeEdu Math App">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="base_styles.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="./js/localStorage.js"></script>
+
+<style>
+  
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="images/logo.png" width="121" height="96">
+    <h1>Math Game</h1>
+    <img class="NoDisplayMobile" src="images/logo.png" width="121" height="96"> 
+
+</header>
+
+
+<nav>
+  <div class="btnbar">
+    <div class="pill_btn"><a href="index.html">Home</a></div>
+    <div class="pill_btn"><a href="select_game.html">New Game</a></div>
+    <div class="pill_btn"><a href="scores.html">Scores</a></div>
+  </div>
+  <div class="user pill">
+    <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+    <div class="user_login">
+      <div id="curr_user">Guest</div>
+      <a id="new_player" href="login.html">New Player?</a>
+    </div>
+  </div>
+
+</nav>
+
+
+<main>
+  <div id="mainA">
+  
+    <button class="accordion">Instructions - click to fold or expand</button> <!-- make div collapse on button press -->
+    <div class="panel">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque finibus justo dui, laoreet tincidunt nunc ultrices in. Suspendisse potenti.</p>
+      <p>Nunc mollis sem eget magna imperdiet sagittis. In malesuada lacus metus, ut suscipit libero dapibus nec. Maecenas eu libero porta turpis eleifend convallis ac id purus. Duis nec augue vel odio mattis volutpat.</p>
+      <p>Maecenas dapibus efficitur nisi, vitae ultrices lectus semper sed. Morbi erat massa, fermentum vitae erat viverra, hendrerit cursus mi. Vivamus purus est, malesuada ac tempus ut, euismod nec metus.</p>
+    </div>
+    
+  </div>
+  
+  <div id="mainB">
+    <p>This looks best at the mobile breakpoint.</p>
+    <p>Morbi tortor est, dictum a malesuada vitae, semper quis arcu. Aenean placerat egestas orci eget rutrum. Phasellus augue dolor, sollicitudin nec leo finibus, facilisis condimentum nulla</p>
+    <p>Donec lobortis, orci vel interdum pulvinar, orci dui commodo ipsum, non porta lorem enim a velit. Proin facilisis metus id libero tincidunt placerat eget id nisl. Sed rutrum dictum hendrerit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p>In consectetur luctus sem hendrerit ullamcorper. Aenean rutrum volutpat mauris. Vivamus lobortis sodales magna.</p>
+    
+  </div>
+  
+</main>
+
+
+<footer>
+  <div id="footLeft">
+    <p><a href="about.html">Kids Are Us</a></p>
+    <p>Copyright &copy;2021</p>
+  </div>
+  
+  <div id="footMid">
+    <img class="footSocial" src="images/facebook.svg" alt="Facebook Logo">
+    <img class="footSocial" src="images/instagram.svg" alt="Instagram Logo">
+    <img class="footSocial" src="images/twitter.svg" alt="Twitter Logo">
+  </div>
+  
+  <div id="footRight">
+    <p><a href="mailto:kidsareus@nomail.obx">Email Us</a></p>
+    <p>1 800 555 1212</p>
+  </div>
+  
+  <div class="break"></div>    
+</footer>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "none") {
+      panel.style.display = "block";
+    } else {
+      panel.style.display = "none";
+    }
+  });
+}
+</script>
+
+</body>
+
+</html>
