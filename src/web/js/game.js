@@ -28,16 +28,7 @@ $(document).ready(function(){
         $("#question span").text(quiz_num)
 
         $(".select_operation button").click(function(event) {
-            var subject=""
-        if(math==1){
-            subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
-        }else if(math==2){
-            subject="Subtraction - A mathematical operation that tells us the difference between two numbers."
-        }else if(math==3){
-            subject="Multiplication - A mathematical operation that take one number and add it together a number of times."
-        }else{
-            subject="Division - A mathematical operation that break a number up into an equal number of parts"
-        }
+           
             
             for (let i in practice_option) {
                 if(event.target.id==i){
@@ -46,7 +37,17 @@ $(document).ready(function(){
                 }else{
                     $(`#${i}`).removeClass("selected_bg")
                 }
-                }
+            }
+            var subject=""
+            if(math==1){
+                subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
+            }else if(math==2){
+                subject="Subtraction - A mathematical operation that tells us the difference between two numbers."
+            }else if(math==3){
+                subject="Multiplication - A mathematical operation that take one number and add it together a number of times."
+            }else{
+                subject="Division - A mathematical operation that break a number up into an equal number of parts"
+            }
             $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content                
             console.log(math)
         })
