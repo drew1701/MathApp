@@ -16,26 +16,48 @@ body {
 
 
 header {
-  background-color: lemonchiffon;
+  background-color: lightgreen;
   border-radius: 1em;
-  
+  margin-bottom: .5em;  
   display: flex; /* setup Flexbox container */
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   justify-content: space-evenly;
 }
 
 
 nav {
   display: flex; /* setup Flexbox container */
+  flex-flow: column wrap;
   justify-content: space-evenly;
+  margin-bottom: .5em;
   font-family: Arial, Helvetica, sans-serif;
+}
 
+.btnbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: .5em;
 }
 
 
-div.pill { /* makes "buttons" in navbar for links and playername */
+div.pill { /* makes area for User Name and links */
+  display: flex;
+  align-items: center;
   background-color: white;
-  border-style: dashed;
+  border-color: red;
+  border-style: solid;
+  border-radius: .5em;
+  padding: .5em 1.5em; /* first top/bottom second right/left */
+}
+
+div.pill_btn { /* makes navigation "buttons" for links */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  border-color: blue;
+  border-style: solid;
   border-radius: .5em;
   padding: .5em 1.5em;
 }
@@ -44,15 +66,17 @@ div.pill { /* makes "buttons" in navbar for links and playername */
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
-  
+  margin-bottom: .5em;  
 }
 
 #mainA, #mainB { /* setup columns in main body */
+  width: 96%;
   background-color: white;
   border-style: solid;
   border-color: purple;
   border-radius: 1em;  
   padding: 20px;
+  margin-bottom: .5em;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -61,100 +85,107 @@ main {
 
 
 footer {
-  background-color: lemonchiffon;
+  background-color: lightpink;
   border-radius: 1em;
   padding: 5px 20px;
+
+  margin-bottom: 3em;
   font-size: .9em;
   display: flex; /* setup Flexbox container */
-  flex-flow: column wrap;
+  flex-flow: row wrap;
   align-items: center;
+  justify-content: center;
 }
+
+.break { /* the class creates a horizontal break in a flex container */
+  flex-basis: 100%;
+  height: 0;
+}
+
 
 #footMid {
   text-align: center;
 }
 
 .footSocial {
-  width: 50px;
-  height: 50px;
-  margin: 10px;  
+  width: 40px;
+  height: 40px;
+  margin: 1em;  
 }
 
 
 /* BEGIN mobile layout settings 767px wide and below */
 @media screen and (max-width: 767px) {
-  header, nav, main, footer {
-    flex-direction: column;
-  }
-  
+    
   nav, header {
     text-align: center;
   }
-  
-  header img {
-    margin: auto;
-  }
-  
+    
   .NoDisplayMobile { 
     display: none;
   }
   
+  div.pill_btn {
+    flex: 1;
+  } 
   div.pill {
-    width: 80%;
-    margin: auto;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  main {
+    align-items: center;
   }
   
   #footLeft, #footRight {
     text-align: center;
+    width: 50%;
+    order: -1;
+  }
+
+  #footMid {
+    order: 2;
   }
  
-  .select_operation button, .select_amount button{
-    width: 125px;
-    height: 125px;
-    line-height: 250px;
-    font-weight: 900;
-    border-style: none;
-    background-color: transparent;
-    background-image: url(images/box.png);
-    background-size: cover;
-  }
-  #practice_mode,#quiz_mode{
-    width: 250px;
-    height: 150px;
-    line-height: 225px;
-    border-style: none;
-    color: red;
-    text-shadow: 0 2px 4px lightcoral;
-    font-size: large;
-    background-color: transparent;
-    background-image: url(images/mode.png);
-    background-size: cover;
-  }
-  .select_operation{
-    display: grid;
-    width: 90%;
-    justify-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-  }
-  .select_amount{
-    display: flex;
-    flex-direction: column;
-  }
+ 
 }  /* END mobile layout settings 767px wide and below */
 
 
 
-/* BEGIN tablet layout settings 768px wide */
+/* BEGIN tablet layout settings 768px wide and higher */
 @media screen and (min-width: 768px) {
   header, nav, main, footer {
     flex-direction: row;
-  }  
+  }
   
+  nav {
+    flex-wrap: nowrap;
+  }
   
+  .btnbar {
+    flex: 2;
+    margin-bottom: 0em;
+  }
+  
+  div.pill_btn {
+    flex: 1;
+  } 
+  div.pill {
+    flex: 1;
+  }
+  
+  main {
+    justify-content: space-between;
+  }
 
   #mainA, #mainB { /* setup columns in main body */
-    flex: 50%; 
+    width: 49%; 
+    text-align: center;
+  }
+
+  .break {
+    display: none;
   }
 
   #footLeft {
@@ -170,45 +201,22 @@ footer {
     text-align: right;
   }
   #practice_mode,#quiz_mode{
-    width: 500px;
-    height: 300px;
-    line-height: 450px;
-    border-style: none;
-    color: red;
-    text-shadow: 0 2px 4px lightcoral;
-    font-size: larger;
-    background-color: transparent;
-    background-image: url(images/mode.png);
-    background-size: cover;
+    border-style: solid;   
   }
   .select_operation button, .select_amount button{
-    width: 250px;
-    height: 250px;
-    line-height: 500px;
-    font-weight: 900;
-    border-style: none;
-    background-color: transparent;
-    background-image: url(images/box.png);
-    background-size: cover;
+    border-style: solid;
   }
-  .select_operation{
-    display: grid;
-    width: 90%;
-    justify-items: center;
-    grid-template-columns: repeat(2,1fr);
-  }
-  .select_amount{
-    display: flex;
-  }
+  
   
 }  /* END tablet layout settings 768px wide */
 
 
-/* BEGIN desktop layout settings 1024px wide */
+/* BEGIN desktop layout settings 1024px wide and higher*/
 @media screen and (min-width: 1024px) {
   header, nav, main, footer {
     width: 80%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 
 }  /* END desktop layout settings 1024px wide */
@@ -290,7 +298,6 @@ footer {
   
 }
 .start_btn,
-#c_go,
 #c_main,
 #c_profile,
 #c_submit,
@@ -310,7 +317,6 @@ footer {
   box-shadow: 0 6px rgb(201, 201, 206);
 }
 .start_btn:active,
-#c_go:active,
 #c_main:active,
 #c_profile:active,
 #c_submit:active,
