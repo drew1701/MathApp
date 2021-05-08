@@ -18,67 +18,79 @@ var quiz_option={
     _30:30,
 }
 $(document).ready(function(){
-    $(".select_operation,.select_amount,.game_page,#c_next,.start_btn").hide()
     // chose practice mode
+    $(".select_operation,.select_amount,.game_page,.start_btn").hide()
     $("#practice_mode").click(function(){
         $(this).hide()
-        $("#quiz_mode").hide()
-        $(".select_operation").show()
+        $("#quiz_mode,.c_infoBar,.select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
+        $(".select_operation,.game_page").show()        
+        $("#c_display").html("Press <button class=c_go>Go</button> to begin")
+        $("#question span").text(quiz_num)
+
         $(".select_operation button").click(function(event) {
-            var subject=""
-        if(math==1){
-            subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
-        }else if(math==2){
-            subject="Subtraction - A mathematical operation that tells us the difference between two numbers."
-        }else if(math==3){
-            subject="Multiplication - A mathematical operation that take one number and add it together a number of times."
-        }else{
-            subject="Division - A mathematical operation that break a number up into an equal number of parts"
-        }
-            $("#c_display").html("Press <button class=c_go>Go</button> to begin")
-            $(".select_operation, .select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
-            $(".game_page").show()
-            $("#question span").text(quiz_num)
-            $('.c_go').click(function() {
-                generateQuestion(math)
-                $(".c_option,#c_hole,#c_submit,#c_skip,.c_msg").show()
-                $('.c_go').hide()
-            })
+           
+            
             for (let i in practice_option) {
+                if(event.target.id==i){
                     math=practice_option[i]
+                    $(`#${i}`).addClass("selected_bg")
+                }else{
+                    $(`#${i}`).removeClass("selected_bg")
                 }
-            $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content                
-            $(".c_infoBar").hide()
-            for(let i=0;i<quiz_num;i++){
-                $(".c_status").append(`<span>${i+1}</span>`)
             }
+            var subject=""
+            if(math==1){
+                subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
+            }else if(math==2){
+                subject="Subtraction - A mathematical operation that tells us the difference between two numbers."
+            }else if(math==3){
+                subject="Multiplication - A mathematical operation that take one number and add it together a number of times."
+            }else{
+                subject="Division - A mathematical operation that break a number up into an equal number of parts"
+            }
+            $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content                
             console.log(math)
+        })
+        $('.c_go').click(function() {
+            console.log(math)
+            if(math!=0){
+                generateQuestion(math)
+            $(".c_option,#c_hole,#c_submit,#c_skip,.c_msg").show()
+            $('.c_go,.select_operation').hide()
+            }
+            
         })
     })
 
     //chose quiz mode
     $("#quiz_mode").click(function(){
         $(this).hide()
-        $("#practice_mode").hide()
-        $(".select_amount").show()
-        $(".select_amount button").click(function(event) {
+        $("#practice_mode,.select_operation,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,#b_msg,#c_profile").hide()
+        $(".select_amount,.game_page").show()
+        $("#c_display").html("Press <button class=c_go>Go</button> to begin")
+        $(".select_amount button").click(function(event) {          
+            math=5
+            quiz=true
             for (let i in quiz_option) {
-                math=5
-                quiz_num=quiz_option[i]
+                if(event.target.id==i){
+                    quiz_num=quiz_option[i]
+                $(`#${i}`).addClass("selected_bg")
+                }else{
+                    $(`#${i}`).removeClass("selected_bg")
+                }
+                
             }
-            $("#c_display").html("Press <button class=c_go>Go</button> to begin")
-            $(".select_operation, .select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
-            $(".game_page").show()
-            $("#question span").text(quiz_num)
-            $('.c_go').click(function() {
+            $("#question span").text(quiz_num)            
+            $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
+            console.log(math,quiz_num)
+        })
+        $('.c_go').click(function() {
+            if(math==5){
                 generateQuestion(math)
                 $(".c_option,#c_hole,#c_submit,c_status").show()
-                $(".c_go,#c_main,#c_profile").hide()
-            })
-            quiz=true
-            $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
-            $('#c_profile').hide()
-            console.log(math,quiz_num)
+                $(".c_go,#c_main,#c_profile,.select_amount").hide()
+            }
+            
         })
     })
 
@@ -102,9 +114,7 @@ $(document).ready(function(){
         let input_ans = $("#c_hole").text()
         // correct answer selected
         if (correct_ans.toString() == input_ans) {
-
             correct_ques++
-            
             console.log("correct ques:" + correct_ques)
             if(quiz)quiz_num--
             total_ques++
@@ -156,20 +166,19 @@ $(document).ready(function(){
                 }
                 
             }else{
-                $(".c_msg p,#c_next").fadeIn("slow")
+                $(".c_msg p").fadeIn("slow")
                 $(".c_msg p").css("background-color","green")
-                $(".c_msg p").text("Good job, You must feel so proud of yourself")
+                $(".c_msg p").text("Good job, You must feel so proud of yourself,get ready for the next question")
                 $("#c_submit").hide()
-                $("#c_next").click(function(){
+                setTimeout(()=>{                   
                     $("#c_submit").show()
                     $(".c_msg p").css("background-color","transparent")
                     $(".c_msg p").text("I’m glad you enjoy learning!")
-                    $("#c_next").hide()
                     if(quiz_num!=0){
                         generateQuestion(math)
                         $("#c_hole").text("?")
-                }
-                })
+                    }
+                },1500)              
             }
 
         }else{
@@ -264,8 +273,8 @@ function generateQuestion() {
     switch (math) {
         case 1:
             {
-                first_quiz_num = random(100)
-                second_quiz_num = random(100)
+                first_quiz_num = random(50)
+                second_quiz_num = random(50)
                 correct_ans = first_quiz_num + second_quiz_num
                 symbol = "+"
                 break;
@@ -274,7 +283,7 @@ function generateQuestion() {
             {
                 first_quiz_num = random(100)
                 do {
-                    second_quiz_num = random(100)
+                    second_quiz_num = random(20)
                 } while (first_quiz_num <= second_quiz_num)
                 correct_ans = first_quiz_num - second_quiz_num
                 console.log(first_quiz_num, second_quiz_num, correct_ans)
@@ -286,7 +295,7 @@ function generateQuestion() {
                 first_quiz_num = random(20)
                 second_quiz_num = random(10)
                 correct_ans = first_quiz_num * second_quiz_num
-                symbol = "X"
+                symbol = "x"
                 break;
             };
         case 4:

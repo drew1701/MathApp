@@ -380,6 +380,14 @@ footer {
   font-size:calc(20px + 1vw);
   border-radius: 15vw;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.c_screen div{
+  height: 50%;
+  margin-bottom: 5px;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -423,6 +431,8 @@ footer {
 #new_player,#logout{
   font-size:xx-small;
 }
-
+.selected_bg{
+  background-color: yellow;
+}
 
 /* End game page */
