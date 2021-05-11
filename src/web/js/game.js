@@ -24,7 +24,8 @@ $(document).ready(function(){
     $("#practice_mode").click(function(){ 
         $("#mainA").html("<h1>Welcome to Practice Mode, select a subject and press GO</h1><img src=./images/operation.jpg alt=operation img>")
         $(this).hide()
-        $("#quiz_mode,.c_infoBar,.select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
+        $("#quiz").remove()
+        $(".c_infoBar,.select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
         $(".select_operation,.game_page").show()        
         $("#c_display").html("Press <button class=c_go>Go</button> to begin")
         $("#question span").text(quiz_num)
@@ -69,7 +70,7 @@ $(document).ready(function(){
     $("#quiz_mode").click(function(){
         $("#mainA").html("<h1>Welcome to Quiz Mode, how many questions would you like?</h1><img src=./images/operation.jpg alt=operation img>")
         $(this).hide()
-        $("#practice_mode,.select_operation,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,#b_msg,#c_profile").hide()
+        $("#practice_mode,.select_operation,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,#b_msg,#c_profile,.c_infoBar").hide()
         $(".select_amount,.game_page").show()
         $("#c_display").html("Press <button class=c_go>Go</button> to begin")
         $(".select_amount button").click(function(event) {          
@@ -92,7 +93,7 @@ $(document).ready(function(){
             if(math==5){
                 $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
                 generateQuestion(math)
-                $(".c_option,#c_hole,#c_submit,c_status").show()
+                $(".c_option,#c_hole,#c_submit,c_status,.c_infoBar").show()
                 $(".c_go,#c_main,#c_profile,.select_amount").hide()
             }
             
