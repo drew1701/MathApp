@@ -445,6 +445,8 @@ footer {
 #mainB td,#mainB th{
   font-size:150%;
 }
-
+#complete_quiz{
+  width: 100%;
+}
 
 /* End game page */

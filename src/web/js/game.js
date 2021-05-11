@@ -212,8 +212,7 @@ $(document).ready(function(){
         $("#question span").text(quiz_num)
         // when finish the last question of the test
         if(quiz_num==0){
-            $("#mainA").text("").css("background-image","url(./images/c.png)").css(
-                "background-size","cover")
+            $("#mainA").text("").append("<img id=complete_quiz src=./images/c.png alt=celebration>")
             $("#c_hole,#c_submit,.c_status").hide()
             math = -1
             clearInterval(interval)
