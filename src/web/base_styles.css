@@ -66,7 +66,8 @@ div.pill_btn { /* makes navigation "buttons" for links */
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
-  margin-bottom: .5em;  
+  margin-bottom: .5em; 
+  min-height: 50vh;
 }
 
 #mainA, #mainB { /* setup columns in main body */
@@ -302,7 +303,8 @@ footer {
 #c_profile,
 #c_submit,
 #c_skip,
-.form_submit input
+.form_submit input,
+#score_again
 {
   font-family: Arial, Helvetica, sans-serif;
   width: 120px;
@@ -321,7 +323,8 @@ footer {
 #c_profile:active,
 #c_submit:active,
 #c_skip:active,
-.form_submit input:active{
+.form_submit input:active,
+#score_again:active{
   box-shadow: 0 2px rgb(127, 127, 131);
   transform: translateY(4px);
 }
@@ -430,9 +433,18 @@ footer {
 }
 #new_player,#logout{
   font-size:xx-small;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding:2px 4px;
+  background-color:bisque;
+  text-decoration: none;
 }
 .selected_bg{
   background-color: yellow;
 }
+#mainB td,#mainB th{
+  font-size:150%;
+}
+
 
 /* End game page */
