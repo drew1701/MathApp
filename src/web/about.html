@@ -18,40 +18,77 @@
 
 <body>
 
-<header>
-    <img src="images/logo.png" width="121" height="96">
-    <h1>Math Game</h1>
-    <img class="NoDisplayMobile" src="images/logo.png" width="121" height="96"> 
-
-</header>
-
-
-<nav>
-  <div class="btnbar">
-    <div class="pill_btn"><a href="index.html">Home</a></div>
-    <div class="pill_btn"><a href="select_game.html">New Game</a></div>
-    <div class="pill_btn"><a href="scores.html">Scores</a></div>
-  </div>
-  <div class="user pill">
-    <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
-    <div class="user_login">
-      <div id="curr_user">Guest</div>
-      <a id="new_player" href="login.html">New Player?</a>
+  <header>
+    <div id="headerLeft">
+    <img class="DisplayInAll" src="images/logo2.png" alt="Company logo" >
     </div>
+  
+    <div id="headerMid">
+          <div class="appName" > Math Game</div>
+            <div class="companyName"> By Kids Are Us</div>
+    </div>
+    
+    <div id="headerRight">
+    <img  class="DisplayInRight" src="images/turtle-blackboard-cartoon-illustration.jpg"  alt="Mascot image" > 
   </div>
+  </header>
 
-</nav>
-
+  <nav>
+    
+      <ul class="btns">
+      <li class="pill_btn"><a href="index.html">Home</a></li>
+      <li class="pill_btn"><a href="select_game.html">New Game</a></li>
+      <li class="pill_btn"><a href="scores.html">Scores</a></li>
+      </ul>
+ 
+    <div class="user pill">
+      <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+      <div class="user_login">
+        <div id="curr_user">Hello, Guest</div>
+        <div>
+          <a id="new_player" href="login.html">New Player?</a>
+          <a id="logout" href="index.html">log out</a>
+        </div>
+      </div>
+    </div>
+   
+  </nav>
 
 <main>
   <div id="mainA">
-    <p>This is the About Page, MainA</p>
+      
+    <div class="content">
+        <h1 class="title"> About us</h1>
+      <div class="companyLogo">
+          
+             <img  src="images/logo2.png" alt="company logo" class="logoInAboutUspage">
+      </div>
+      <div>
+        
+         Kids Are Us is dedicated to making learning tools
+         for kids fun and interactive. During these hard 
+         times, we wanted to build a Math App for 3rd 
+         graders and above. We understand that there are many learning 
+         games in the market however, they are not Free! So we thank you for your 
+         support and we hope your kids enjoy playing our simple and totally free app.
 
-  </div>
+      </div>
+    </div>
+      
+    </div>
+  
   
   <div id="mainB">
-    <p>This is the About Page, MainB</p>
     
+    <section>
+        <h3>Mission </h3>
+        <p> To support the community by providing a free learning materials. </p>
+        <h3>Goal</h3>
+        <p>To motivate kids to learn more in a simple and fun way </p>
+
+        <h4> Your support is valuable , Together we will make a change !!!</h4>
+    </section>
+    <p> This game was designed and developed by WeCodeEdu.</p>
   </div>
   
 </main>

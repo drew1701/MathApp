@@ -5,7 +5,6 @@
   box-sizing: border-box;  
 }
 
-
 body { 
   background-image: url(images/svg_bg1.svg);
   background-attachment: fixed;
@@ -13,7 +12,6 @@ body {
   background-size: cover;
   margin: 0;  
 }
-
 
 header {
   background-color: lightgreen;
@@ -24,23 +22,63 @@ header {
   justify-content: space-evenly;
 }
 
+#headerMid{
+  margin: .5em;
+}
+#headerMid div.appName{
+  font-size: 1.5em;
+  margin-bottom: .3em;
+}
+#headerMid div.companyName{
+  font-size: 1.2em; 
+}
+.DisplayInAll,.DisplayInRight{
+  width:80px ;
+  height:80px ; 
+  margin: .3em;
+}
+.DisplayInAll{
+  border-radius: 5em;
+}
+.DisplayInRight{
+  border-radius: 1em;
+}
 
 nav {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   justify-content: space-evenly;
-  margin-bottom: .5em;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: .5em; 
+  font-family: Arial, Helvetica, sans-serif; 
 }
+/* makes navigation "buttons" for links */ 
 
-.btnbar {
-  display: flex;
+ul.btns {
+  display: flex; /* to display lists inline */
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center; 
   margin-bottom: .5em;
+  margin: 0 1.5em;
+ 
+}  
+ul.btns li{ 
+ 
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  border-color: blue;
+  border-style: solid;
+  border-radius: .5em; 
+  padding: .5em 1em;
+  list-style-type: none;
 }
-
-
+ul.btns a{ /* to cover the area and make it clickable */
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  padding: .5em 1.5em;
+}
 div.pill { /* makes area for User Name and links */
   display: flex;
   align-items: center;
@@ -49,17 +87,6 @@ div.pill { /* makes area for User Name and links */
   border-style: solid;
   border-radius: .5em;
   padding: .5em 1.5em; /* first top/bottom second right/left */
-}
-
-div.pill_btn { /* makes navigation "buttons" for links */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: yellow;
-  border-color: blue;
-  border-style: solid;
-  border-radius: .5em;
-  padding: .5em 1.5em;
 }
 
 
@@ -88,7 +115,6 @@ footer {
   background-color: lightpink;
   border-radius: 1em;
   padding: 5px 20px;
-
   margin-bottom: 3em;
   font-size: .9em;
   display: flex; /* setup Flexbox container */
@@ -101,8 +127,15 @@ footer {
   flex-basis: 100%;
   height: 0;
 }
-
-
+         
+.logoInAboutUspage { /* image setup in about us page*/
+  width: 100px;
+  height: 100px;
+  border-style: solid;
+  border-radius: .5em;
+  padding-left: .5em;
+  
+   }     
 #footMid {
   text-align: center;
 }
@@ -120,11 +153,16 @@ footer {
   nav, header {
     text-align: center;
   }
-    
-  .NoDisplayMobile { 
-    display: none;
-  }
-  
+  .DisplayInAll,.DisplayInRight{
+    width:60px ;
+    height:60px ; 
+  } 
+ ul.btns{
+   margin: .5em;
+ }
+ ul.btns li{
+  padding:.5em;
+}
   div.pill_btn {
     flex: 1;
   } 
@@ -150,8 +188,6 @@ footer {
  
  
 }  /* END mobile layout settings 767px wide and below */
-
-
 
 /* BEGIN tablet layout settings 768px wide and higher */
 @media screen and (min-width: 768px) {
