@@ -17,8 +17,6 @@
 
 <body>
 
-  <div class="layer hide"></div>
-  <div class="dialog"></div>
 <header>
     <img src="images/logo.png" width="121" height="96">
     <h1>Math Game</h1>
@@ -38,7 +36,7 @@
     <div class="user_login">
       <div id="curr_user">Guest</div>
       <a id="new_player" href="login.html">New Player?</a>
-      <a id="logout" href="logout.html">log out</a>
+      <a id="logout" href="index.html">log out</a>
     </div>
   </div>
  
@@ -47,7 +45,11 @@
 
 <main>
   <div id="mainA">
-    <p id="a_msg">Improve your selected math problem.</p>
+    
+  </div>
+  
+  <div id="mainB">
+    <div id="practice">
     <button id="practice_mode">Practice Mode</button>
     <div class="select_operation">
       <button id='add'>Addition</button>
@@ -55,18 +57,16 @@
       <button id='mul'>Multiplication</button>
       <button id='div'>Division</button>
     </div>
-    <button  class="start_btn">Start</button>
-  </div>
-  
-  <div id="mainB">
-    <p id="b_msg">Challenge yourself </p>
+    </div>
+    <div id="quiz">
     <button id="quiz_mode">Quiz Mode</button>
     <div class="select_amount">
       <button id="_10">10 questions</button>
       <button id="_20">20 questions</button>
       <button id="_30">30 questions</button>
     </div>
-    <button class="start_btn">Start</button>
+    </div>
+    
     <section class="game_page">
       <div class="c_infoBar">
         <span id="question">Question left:<span>0 </span></span>
@@ -81,19 +81,19 @@
           <p id="c_option4"></p>
         </div>
         <div class="c_screen">
+        <div >
           <p id="c_display"></p>
           <p id="c_hole">?</p>
-          <p id="c_submit">Submit</p>
+        </div>
+          <button id="c_submit">Submit</button>
         </div>
         <div class="c_msg">
           <p>Let's go my friend</p>
-          <button id="c_next">Go next Question</button>
         </div>
         <div class="c_status"></div>
         <div class="c_btn">
           <a id="c_main" href="select_game.html">New Game</a>
           <input type="button" value="Skip" id="c_skip">
-          <input id="c_go" type="button" value="Go">
           <a id="c_profile" href="scores.html">Score</a>
         </div>
     </section>

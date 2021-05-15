@@ -10,6 +10,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="js/sessionStorage.js"></script>
+  <script src="js/localStorage.js"></script>
   <script src="js/score.js"></script>
 
 
@@ -39,7 +40,7 @@
       <div id="curr_user">Guest</div>
       <div>
         <a id="new_player" href="login.html">New Player?</a>
-        <a id="logout" href="logout.html">log out</a>
+        <a id="logout" href="index.html">log out</a>
       </div>
     </div>
   </div>
@@ -49,18 +50,20 @@
 
 <main>
   <div id="mainA">
-    <button id="change_user">Switch User</button>
+    <!-- <button id="change_user">Switch User</button> -->
+    <h1 id="score_name">Congratulations</h1>
+    <img id="score_img" src="./images/user_img.png" alt="avatar" width="50%" style="margin: 10px;">
+    <a id="score_again" href="select_game.html">Play Again?</a>
   </div>
   
   <div id="mainB">
     
     <table>
-      <thead><img id="score_img" src="./images/user_img.png" alt="avatar" width="100" height="100"></thead>
+      <thead></thead>
 
       <tbody>
         <tr>
-          <td>Name:</td>
-          <td id="score_name"></td>
+          <th>Quiz achievement:</th>
         </tr>
         <tr>
           <td>Best Quiz Score: </td>
@@ -73,6 +76,9 @@
         <tr>
           <td>Completed Quiz:</td>
           <td id="completed_quiz"></td>
+        </tr>
+        <tr>
+          <th>Practice achievement:</th>
         </tr>
         <tr>
           <td>Completed Addition:</td>

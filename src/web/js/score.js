@@ -48,9 +48,9 @@ $(document).ready(function(){
             
         }
         if(curr_avatar!=null){
-            $("#score_img").attr("src",`../web/images/${curr_avatar}.png`)
+            $("#score_img").attr("src",`./images/${curr_avatar}.png`)
         }
-        $("#score_name").text(curr_user==null?'':curr_user)
+        $("#score_name").text(curr_user==null?'':"Congratulations, "+curr_user)
         $("#best_score").text(bestScore)
         $("#average_score").text(averageScore)
         $("#completed_quiz").text(completedQuiz)
