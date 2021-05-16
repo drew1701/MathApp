@@ -16,7 +16,7 @@ body {
 
 
 header {
-  background-color: lightgreen;
+  background-color: lightpink;
   border-radius: 1em;
   margin-bottom: .5em;  
   display: flex; /* setup Flexbox container */
@@ -44,9 +44,7 @@ nav {
 div.pill { /* makes area for User Name and links */
   display: flex;
   align-items: center;
-  background-color: white;
-  border-color: red;
-  border-style: solid;
+  border: 1px solid skyblue;
   border-radius: .5em;
   padding: .5em 1.5em; /* first top/bottom second right/left */
 }
@@ -56,26 +54,31 @@ div.pill_btn { /* makes navigation "buttons" for links */
   align-items: center;
   justify-content: center;
   background-color: yellow;
-  border-color: blue;
-  border-style: solid;
+  border: 1px solid skyblue;
   border-radius: .5em;
   padding: .5em 1.5em;
 }
 
-
+#koala{
+  transform: rotate(40deg);
+  width: 30vmin;
+  position: absolute;
+  left: calc((100% - 30vmin)/2 + 3vmin);
+  top: 40%;
+}
 main {
   display: flex; /* setup Flexbox container */
   flex-flow: column wrap;
   margin-bottom: .5em; 
-  min-height: 50vh;
+  min-height: 60vh;
 }
 
 #mainA, #mainB { /* setup columns in main body */
   width: 96%;
   background-color: white;
-  border-style: solid;
-  border-color: purple;
-  border-radius: 1em;  
+  border:1px solid transparent;
+  border-radius: 15px;
+  box-shadow: 2px -2px 5px gray,-2px 2px 5px gray;
   padding: 20px;
   margin-bottom: .5em;
   display: flex;
@@ -83,14 +86,35 @@ main {
   justify-content: space-around;
   align-items: center;
 }
+#mainA{
+  background-image: url(images/bg1.png);
+  background-size: cover;
+  position: relative;
+}
+
+#mainB{
+  background: rgb(245,242,242);
+  background: radial-gradient(circle, rgba(245,242,242,1) 50%, rgba(14,226,231,0.7206232834930848) 100%);
+}
+#mainA p,#main_title,.about p{
+  width: 60%;
+  margin: auto;
+  text-align:justify;
+}
+#koala2{
+  width: 20%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+
 
 
 footer {
   background-color: lightpink;
   border-radius: 1em;
   padding: 5px 20px;
-
-  margin-bottom: 3em;
   font-size: .9em;
   display: flex; /* setup Flexbox container */
   flex-flow: row wrap;
@@ -137,6 +161,7 @@ footer {
   
   main {
     align-items: center;
+    text-align: center;
   }
   
   #footLeft, #footRight {
@@ -147,6 +172,9 @@ footer {
 
   #footMid {
     order: 2;
+  }
+  #koala{
+    display: none;
   }
  
  

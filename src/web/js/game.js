@@ -19,7 +19,8 @@ var quiz_option={
 }
 $(document).ready(function(){
     // chose practice mode
-    $("#mainA").html("<h1><b>How to start playing  the game<b/></h1><h2><b>Practice mode</b></h2><p>Contain four mathematical operation choices Select one which you want to practice with then press the Go button to start the game</p><h2><b>Quiz mode</b></h2><p>Contain an option of how many number of questions you want to take a quiz and each option has a mixed type of questions</p>")
+
+    $("#mainA div").html("<h1><b>How to start playing the game</b></h1><h2><b>Practice mode</b></h2><p>Contain four mathematical operation choices Select one which you want to practice with then press the Go button to start the game</p><h2><b>Quiz mode</b></h2><p>Contain an option of how many number of questions you want to take a quiz and each option has a mixed type of questions</p>")
     $(".select_operation,.select_amount,.game_page,.start_btn").hide()
     $("#practice_mode").click(function(){ 
         $("#mainA").html("<h1>Welcome to Practice Mode, select a subject and press GO</h1><img src=./images/operation.jpg alt=operation img>")
