@@ -19,10 +19,14 @@ var quiz_option={
 }
 $(document).ready(function(){
     // chose practice mode
+
+    $("#mainA div").html("<h1><b>How to start playing the game</b></h1><h2><b>Practice mode</b></h2><p>Contain four mathematical operation choices Select one which you want to practice with then press the Go button to start the game</p><h2><b>Quiz mode</b></h2><p>Contain an option of how many number of questions you want to take a quiz and each option has a mixed type of questions</p>")
     $(".select_operation,.select_amount,.game_page,.start_btn").hide()
-    $("#practice_mode").click(function(){
+    $("#practice_mode").click(function(){ 
+        $("#mainA").html("<h1>Welcome to Practice Mode, select a subject and press GO</h1><img src=./images/operation.jpg alt=operation img>")
         $(this).hide()
-        $("#quiz_mode,.c_infoBar,.select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
+        $("#quiz").remove()
+        $(".c_infoBar,.select_amount,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,.c_status,#b_msg").hide()
         $(".select_operation,.game_page").show()        
         $("#c_display").html("Press <button class=c_go>Go</button> to begin")
         $("#question span").text(quiz_num)
@@ -38,7 +42,12 @@ $(document).ready(function(){
                     $(`#${i}`).removeClass("selected_bg")
                 }
             }
-            var subject=""
+                          
+            console.log(math)
+        })
+        $('.c_go').click(function() {
+            if(math!=0){
+                var subject=""
             if(math==1){
                 subject="Addition - A mathematical that finds the total number when two or more numbers are put together. "
             }else if(math==2){
@@ -48,12 +57,8 @@ $(document).ready(function(){
             }else{
                 subject="Division - A mathematical operation that break a number up into an equal number of parts"
             }
-            $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content                
+            $("#mainA").html(`<p>Math topic:<br>${subject}<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>No attempts limit for each question<br>No time limit<br>Socre only the answer is correct<br>Start new game anytime<p>`)// instruction content  
             console.log(math)
-        })
-        $('.c_go').click(function() {
-            console.log(math)
-            if(math!=0){
                 generateQuestion(math)
             $(".c_option,#c_hole,#c_submit,#c_skip,.c_msg").show()
             $('.c_go,.select_operation').hide()
@@ -64,8 +69,9 @@ $(document).ready(function(){
 
     //chose quiz mode
     $("#quiz_mode").click(function(){
+        $("#mainA").html("<h1>Welcome to Quiz Mode, how many questions would you like?</h1><img src=./images/operation.jpg alt=operation img>")
         $(this).hide()
-        $("#practice_mode,.select_operation,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,#b_msg,#c_profile").hide()
+        $("#practice_mode,.select_operation,.start_btn,#c_hole,.c_option,#c_submit,#c_skip,.c_msg,#b_msg,#c_profile,.c_infoBar").hide()
         $(".select_amount,.game_page").show()
         $("#c_display").html("Press <button class=c_go>Go</button> to begin")
         $(".select_amount button").click(function(event) {          
@@ -81,13 +87,14 @@ $(document).ready(function(){
                 
             }
             $("#question span").text(quiz_num)            
-            $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
+           
             console.log(math,quiz_num)
         })
         $('.c_go').click(function() {
             if(math==5){
+                $("#mainA").html("<p>Math topic:<br>Quiz<br><br>How to play:<br>Click on the correct answer from the choices and hit submit<br><br>Rule:<br>One attempt for each question<br>NO time limit<br>Socre only complete the entire quiz<p>") // instruction content 
                 generateQuestion(math)
-                $(".c_option,#c_hole,#c_submit,c_status").show()
+                $(".c_option,#c_hole,#c_submit,c_status,.c_infoBar").show()
                 $(".c_go,#c_main,#c_profile,.select_amount").hide()
             }
             
@@ -206,11 +213,12 @@ $(document).ready(function(){
         $("#question span").text(quiz_num)
         // when finish the last question of the test
         if(quiz_num==0){
+            $("#mainA").text("").append("<img id=complete_quiz src=./images/c.png alt=celebration>")
             $("#c_hole,#c_submit,.c_status").hide()
             math = -1
             clearInterval(interval)
             $("#c_stop,.c_infoBar,.c_option,#c_hole,#c_submit").hide()
-            $("#c_main,#c_profile").show(1000)
+            $("#c_main,#c_profile").show()
             document.getElementById("c_display").innerHTML = `<table><caption>Good Job! ${username}</caption><tr><td>Total Question:</td><td>${total_ques}</td></tr> <tr><td>Correct:</td><td>${correct_ques}</td></tr>  <tr><td>Score:</td><td>${(correct_ques/total_ques*100).toFixed(0)} </td></tr></table>`
             
     
