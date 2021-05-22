@@ -17,34 +17,40 @@
 
 <body>
 
-  <div class="layer hide"></div>
-  <div class="dialog"></div>
 <header>
     <img src="images/logo.png" width="121" height="96">
     <h1>Math Game</h1>
     <img class="NoDisplayMobile" src="images/logo.png" width="121" height="96"> 
 
 </header>
-<p></p>
+
 
 <nav>
-    <div class="pill"><a href="index.html">Home</a></div>
-    <div class="pill"><a href="select_game.html">New Game</a></div>
-    <div class="pill"><a href="scores.html">Scores</a></div>
-    <div class="user pill">
-      <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
-      <div class="user_login">
-        <div id="curr_user">Guest</div>
-        <a id="new_player" href="login.html">New Player?</a>
-      </div>
+  <div class="btnbar">
+    <div class="pill_btn"><a href="index.html">Home</a></div>
+    <div class="pill_btn"><a href="select_game.html">New Game</a></div>
+    <div class="pill_btn"><a href="scores.html">Scores</a></div>
+  </div>
+  <div class="user pill">
+    <div class="avatar"><img src="./images/user_img.png" alt="avatar" width="30" height="30"></div>
+    <div class="user_login">
+      <div id="curr_user">Guest</div>
+      <a id="new_player" href="login.html">New Player?</a>
+      <a id="logout" href="index.html">log out</a>
     </div>
+  </div>
  
 </nav>
-<p></p>
+
 
 <main>
   <div id="mainA">
-    <p id="a_msg">Improve your selected math problem.</p>
+    <div></div>
+    <img id="koala2" src="images/koala2.png" alt="koala2">
+  </div>
+  
+  <div id="mainB">
+    <div id="practice">
     <button id="practice_mode">Practice Mode</button>
     <div class="select_operation">
       <button id='add'>Addition</button>
@@ -52,18 +58,16 @@
       <button id='mul'>Multiplication</button>
       <button id='div'>Division</button>
     </div>
-    <button  class="start_btn">Start</button>
-  </div>
-  
-  <div id="mainB">
-    <p id="b_msg">Challenge yourself </p>
+    </div>
+    <div id="quiz">
     <button id="quiz_mode">Quiz Mode</button>
     <div class="select_amount">
       <button id="_10">10 questions</button>
       <button id="_20">20 questions</button>
       <button id="_30">30 questions</button>
     </div>
-    <button class="start_btn">Start</button>
+    </div>
+    
     <section class="game_page">
       <div class="c_infoBar">
         <span id="question">Question left:<span>0 </span></span>
@@ -78,19 +82,19 @@
           <p id="c_option4"></p>
         </div>
         <div class="c_screen">
+        <div >
           <p id="c_display"></p>
           <p id="c_hole">?</p>
-          <p id="c_submit">Submit</p>
+        </div>
+          <button id="c_submit">Submit</button>
         </div>
         <div class="c_msg">
           <p>Let's go my friend</p>
-          <button id="c_next">Go next Question</button>
         </div>
         <div class="c_status"></div>
         <div class="c_btn">
           <a id="c_main" href="select_game.html">New Game</a>
           <input type="button" value="Skip" id="c_skip">
-          <input id="c_go" type="button" value="Go">
           <a id="c_profile" href="scores.html">Score</a>
         </div>
     </section>
@@ -99,11 +103,11 @@
     
   
 </main>
-<p></p>
+
 
 <footer>
   <div id="footLeft">
-    <p>Kids Are Us</p>
+    <p><a href="about.html">Kids Are Us</a></p>
     <p>Copyright &copy;2021</p>
   </div>
   
@@ -118,8 +122,9 @@
     <p>1 800 555 1212</p>
   </div>
   
+  <div class="break"></div>    
 </footer>
-<p></p>
+
 
 
 </body>
